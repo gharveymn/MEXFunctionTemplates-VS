@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+	<TemplateData>
+		<Name>MEX Function</Name>
+		<Description>Create a MEX Function</Description>
+		<Icon>MEXFunctionTemplate.ico</Icon>
+		<ProjectType>CSharp</ProjectType>
+		<RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+		<SortOrder>1000</SortOrder>
+		<TemplateID>411a2ca6-5731-4fd0-a225-8a63d0446933</TemplateID>
+		<CreateNewFolder>true</CreateNewFolder>
+		<DefaultName>MEXFunction</DefaultName>
+		<ProvideDefaultName>true</ProvideDefaultName>
+	</TemplateData>
+	<TemplateContent>
+		<Project File="ProjectTemplate.csproj" ReplaceParameters="true">
+			<ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true" OpenInEditor="true">Class1.cs</ProjectItem>
+		</Project>
+	</TemplateContent>
+	<WizardExtension>
+		<Assembly>MEXFunctionWizard, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=dd22504a0a65711c</Assembly>
+		<FullClassName>MEXFunctionWizard.WizardImplementation</FullClassName>
+	</WizardExtension>
+</VSTemplate>

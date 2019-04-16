@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup Label="ProjectConfigurations">
+		<ProjectConfiguration Include="Debug|x64">
+			<Configuration>Debug</Configuration>
+			<Platform>x64</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Release|x64">
+			<Configuration>Release</Configuration>
+			<Platform>x64</Platform>
+		</ProjectConfiguration>
+	</ItemGroup>
+	<PropertyGroup Label="Globals">
+		<VCProjectVersion>15.0</VCProjectVersion>
+		<ProjectGuid>{C7947798-7D45-4567-913A-8515AA400E6B}</ProjectGuid>
+		<Keyword>Win32Proj</Keyword>
+		<WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+	</PropertyGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+		<ConfigurationType>DynamicLibrary</ConfigurationType>
+		<UseDebugLibraries>true</UseDebugLibraries>
+		<PlatformToolset>v141</PlatformToolset>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+		<ConfigurationType>DynamicLibrary</ConfigurationType>
+		<UseDebugLibraries>false</UseDebugLibraries>
+		<PlatformToolset>v141</PlatformToolset>
+	</PropertyGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+	<ImportGroup Label="ExtensionSettings" />
+	<ImportGroup Label="Shared">
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+	</ImportGroup>
+	<PropertyGroup Label="UserMacros" />
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+		<LinkIncremental>false</LinkIncremental>
+		<TargetExt>.mexw64</TargetExt>
+		<OutDir>$(SolutionDir)out\private\</OutDir>
+		<EmbedManifest>false</EmbedManifest>
+		<CodeAnalysisRuleSet>NativeRecommendedRules.ruleset</CodeAnalysisRuleSet>
+		<IntDir>$(OutDir)Build\$(Platform)\$(Configuration)\</IntDir>
+		<MatlabRoot>C:\Program Files\MATLAB\R2019a\</MatlabRoot>
+		<Matlab_IncludePath>$(MatlabRoot)extern\include;$(MatlabRoot)simulink\include</Matlab_IncludePath>
+		<Matlab_LibraryPath>$(MatlabRoot)extern\lib\win64\microsoft</Matlab_LibraryPath>
+		<Matlab_Dependencies>libmx.lib;libmex.lib;libmat.lib;libMatlabDataArray.lib;libMatlabEngine.lib</Matlab_Dependencies>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+		<LinkIncremental>false</LinkIncremental>
+		<TargetExt>.mexw64</TargetExt>
+		<OutDir>$(SolutionDir)out\private\</OutDir>
+		<EmbedManifest>false</EmbedManifest>
+		<CodeAnalysisRuleSet>NativeRecommendedRules.ruleset</CodeAnalysisRuleSet>
+		<IntDir>$(OutDir)Build\$(Platform)\$(Configuration)\</IntDir>
+		<MatlabRoot>C:\Program Files\MATLAB\R2019a\</MatlabRoot>
+		<Matlab_IncludePath>$(MatlabRoot)extern\include;$(MatlabRoot)simulink\include</Matlab_IncludePath>
+		<Matlab_LibraryPath>$(MatlabRoot)extern\lib\win64\microsoft</Matlab_LibraryPath>
+		<Matlab_Dependencies>libmx.lib;libmex.lib;libmat.lib;libMatlabDataArray.lib;libMatlabEngine.lib</Matlab_Dependencies>
+	</PropertyGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+		<ClCompile>
+			<PreprocessorDefinitions>MATLAB_DEFAULT_RELEASE=R2017b;USE_MEX_CMD;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;_SECURE_SCL=0;MATLAB_MEX_FILE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<AdditionalIncludeDirectories>$(Matlab_IncludePath);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+			<RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+			<DebugInformationFormat>OldStyle</DebugInformationFormat>
+			<StructMemberAlignment>8Bytes</StructMemberAlignment>
+			<ExceptionHandling>SyncCThrow</ExceptionHandling>
+			<RuntimeTypeInfo>true</RuntimeTypeInfo>
+			<WarningLevel>Level4</WarningLevel>
+		</ClCompile>
+		<Link>
+			<GenerateDebugInformation>true</GenerateDebugInformation>
+			<SubSystem>Windows</SubSystem>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+			<AdditionalLibraryDirectories>$(Matlab_LibraryPath);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+			<AdditionalDependencies>$(Matlab_Dependencies);%(AdditionalDependencies)</AdditionalDependencies>
+			<ProgramDatabaseFile>%(OutputFile).pdb</ProgramDatabaseFile>
+			<AdditionalOptions>/EXPORT:mexFunction /EXPORT:mexfilerequiredapiversion %(AdditionalOptions)</AdditionalOptions>
+			<ShowProgress>NotSet</ShowProgress>
+		</Link>
+		<Manifest>
+			<OutputManifestFile>$(OutDir)$(TargetName)$(TargetExt).manifest</OutputManifestFile>
+		</Manifest>
+		<ManifestResourceCompile>
+			<ResourceOutputFileName>$(IntDir)$(TargetName)$(TargetExt).manifest.res</ResourceOutputFileName>
+		</ManifestResourceCompile>
+		<PostBuildEvent>
+			<Command>del "$(OutDir)$(TargetName).exp" "$(OutDir)$(TargetName).lib" "$(OutDir)$(TargetName)$(TargetExt).manifest" "$(OutDir)$(TargetName).ilk"</Command>
+			<Message>   Deleting $(OutDir)$(TargetName).exp $(OutDir)$(TargetName).lib $(OutDir)$(TargetName)$(TargetExt).manifest and $(OutDir)$(TargetName).ilk</Message>
+		</PostBuildEvent>
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+		<ClCompile>
+			<PreprocessorDefinitions>MATLAB_DEFAULT_RELEASE=R2017b;USE_MEX_CMD;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;_SECURE_SCL=0;MATLAB_MEX_FILE;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<AdditionalIncludeDirectories>$(Matlab_IncludePath);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+			<RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+			<DebugInformationFormat>OldStyle</DebugInformationFormat>
+			<Optimization>MaxSpeed</Optimization>
+			<StructMemberAlignment>8Bytes</StructMemberAlignment>
+			<ExceptionHandling>SyncCThrow</ExceptionHandling>
+			<RuntimeTypeInfo>true</RuntimeTypeInfo>
+			<BasicRuntimeChecks>Default</BasicRuntimeChecks>
+			<SupportJustMyCode>true</SupportJustMyCode>
+			<OmitFramePointers>false</OmitFramePointers>
+			<WarningLevel>Level4</WarningLevel>
+		</ClCompile>
+		<Link>
+			<GenerateDebugInformation>false</GenerateDebugInformation>
+			<SubSystem>Windows</SubSystem>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+			<AdditionalLibraryDirectories>$(Matlab_LibraryPath);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+			<AdditionalDependencies>$(Matlab_Dependencies);%(AdditionalDependencies)</AdditionalDependencies>
+			<ProgramDatabaseFile>%(OutputFile).pdb</ProgramDatabaseFile>
+			<AdditionalOptions>/EXPORT:mexFunction /EXPORT:mexfilerequiredapiversion %(AdditionalOptions)</AdditionalOptions>
+			<ShowProgress>NotSet</ShowProgress>
+		</Link>
+		<PostBuildEvent>
+			<Command>del "$(OutDir)$(TargetName).exp" "$(OutDir)$(TargetName).lib" "$(OutDir)$(TargetName)$(TargetExt).manifest" "$(OutDir)$(TargetName).ilk"</Command>
+			<Message>   Deleting $(OutDir)$(TargetName).exp $(OutDir)$(TargetName).lib $(OutDir)$(TargetName)$(TargetExt).manifest and $(OutDir)$(TargetName).ilk</Message>
+		</PostBuildEvent>
+		<Manifest>
+			<OutputManifestFile>$(OutDir)$(TargetName)$(TargetExt).manifest</OutputManifestFile>
+		</Manifest>
+		<ManifestResourceCompile>
+			<ResourceOutputFileName>$(IntDir)$(TargetName)$(TargetExt).manifest.res</ResourceOutputFileName>
+		</ManifestResourceCompile>
+	</ItemDefinitionGroup>
+	<ItemGroup>
+		<ClCompile Include="source\src\mexfunction.cpp" />
+	</ItemGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+	<Import Project="$(MSBuildThisFileDirectory)\matlab.targets" />
+</Project>
