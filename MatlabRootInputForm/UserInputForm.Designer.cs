@@ -59,14 +59,14 @@
 			this.PlatformSelect.FormattingEnabled = true;
 			this.PlatformSelect.Location = new System.Drawing.Point(106, 3);
 			this.PlatformSelect.Name = "PlatformSelect";
-			this.PlatformSelect.Size = new System.Drawing.Size(218, 21);
+			this.PlatformSelect.Size = new System.Drawing.Size(307, 21);
 			this.PlatformSelect.TabIndex = 1;
 			// 
 			// tableLayoutPanel1
 			// 
 			this.tableLayoutPanel1.ColumnCount = 3;
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.56342F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.43658F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.75961F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.24039F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 89F));
 			this.tableLayoutPanel1.Controls.Add(this.PlatformSelect, 1, 0);
 			this.tableLayoutPanel1.Controls.Add(this.PLabel, 0, 0);
@@ -82,7 +82,7 @@
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(417, 88);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(506, 88);
 			this.tableLayoutPanel1.TabIndex = 2;
 			// 
 			// MLLabel
@@ -102,13 +102,13 @@
 			this.FolderSelect.FormattingEnabled = true;
 			this.FolderSelect.Location = new System.Drawing.Point(106, 32);
 			this.FolderSelect.Name = "FolderSelect";
-			this.FolderSelect.Size = new System.Drawing.Size(218, 21);
+			this.FolderSelect.Size = new System.Drawing.Size(307, 21);
 			this.FolderSelect.TabIndex = 3;
 			// 
 			// BrowseButton
 			// 
 			this.BrowseButton.Dock = System.Windows.Forms.DockStyle.Top;
-			this.BrowseButton.Location = new System.Drawing.Point(330, 32);
+			this.BrowseButton.Location = new System.Drawing.Point(419, 32);
 			this.BrowseButton.Name = "BrowseButton";
 			this.BrowseButton.Size = new System.Drawing.Size(84, 23);
 			this.BrowseButton.TabIndex = 4;
@@ -119,7 +119,7 @@
 			// 
 			this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.CancelButton.Dock = System.Windows.Forms.DockStyle.Top;
-			this.CancelButton.Location = new System.Drawing.Point(330, 61);
+			this.CancelButton.Location = new System.Drawing.Point(419, 61);
 			this.CancelButton.Name = "CancelButton";
 			this.CancelButton.Size = new System.Drawing.Size(84, 23);
 			this.CancelButton.TabIndex = 5;
@@ -130,7 +130,7 @@
 			// 
 			this.AcceptButton.DialogResult = System.Windows.Forms.DialogResult.OK;
 			this.AcceptButton.Dock = System.Windows.Forms.DockStyle.Right;
-			this.AcceptButton.Location = new System.Drawing.Point(249, 61);
+			this.AcceptButton.Location = new System.Drawing.Point(338, 61);
 			this.AcceptButton.Name = "AcceptButton";
 			this.AcceptButton.Size = new System.Drawing.Size(75, 24);
 			this.AcceptButton.TabIndex = 6;
@@ -147,11 +147,9 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(417, 88);
+			this.ClientSize = new System.Drawing.Size(506, 88);
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-			this.MaximumSize = new System.Drawing.Size(433, 127);
-			this.MinimumSize = new System.Drawing.Size(433, 127);
 			this.Name = "UserInputForm";
 			this.Text = "MEX Template Wizard";
 			this.tableLayoutPanel1.ResumeLayout(false);

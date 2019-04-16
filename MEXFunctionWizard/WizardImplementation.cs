@@ -54,8 +54,8 @@ namespace MEXFunctionWizard
 				platform = MatlabRootInputForm.UserInputForm.platform;
 
 				// Add custom parameters.
-				replacementsDictionary.Add("$custommessage$",
-					customMessage);
+				replacementsDictionary.Add("$MATLABROOT$", matlabroot);
+				replacementsDictionary.Add("$PLATFORM$", platform);
 			}
 			catch (Exception ex)
 			{
