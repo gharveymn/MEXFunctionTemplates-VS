@@ -78,10 +78,12 @@
     <ProjectReference Include="..\MatlabRootInputForm\MatlabRootInputForm.csproj">
       <Project>{ddc739a2-457b-4588-8998-bc13945e7552}</Project>
       <Name>MatlabRootInputForm</Name>
+      <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup%3bBuiltProjectOutputGroupDependencies%3bGetCopyToOutputDirectoryItems%3bSatelliteDllsProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+      <IncludeOutputGroupsInVSIXLocalOnly>DebugSymbolsProjectOutputGroup%3b</IncludeOutputGroupsInVSIXLocalOnly>
     </ProjectReference>
-    <ProjectReference Include="..\MEXFunctionTemplate\MEXFunctionTemplate.csproj">
+    <ProjectReference Include="..\MEXFunctionTemplate\MEXFunctionTemplate_CPP_Matrix.csproj">
       <Project>{5EC44FCA-E747-4BA4-B2C9-49AAFE365C5A}</Project>
-      <Name>MEXFunctionTemplate</Name>
+      <Name>MEXFunctionTemplate_CPP_Matrix</Name>
       <VSIXSubPath>ProjectTemplates</VSIXSubPath>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
