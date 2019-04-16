@@ -91,8 +91,10 @@ namespace MatlabRootInputForm
 
 		private void BrowseButton_Click(object sender, EventArgs e)
 		{
-			this.FolderBrowser.ShowDialog();
-			this.FolderSelect.Text = this.FolderBrowser.SelectedPath;
+			if (this.FolderBrowser.ShowDialog() == DialogResult.OK)
+			{
+				this.FolderSelect.Text = this.FolderBrowser.SelectedPath;
+			}
 		}
 
 		private void CancelButton_Click(object sender, EventArgs e)
@@ -182,6 +184,10 @@ namespace MatlabRootInputForm
 							return null;
 						}
 						ret[i] = matlabroot_str.ToString();
+						if(!ret[i].EndsWith(@"\"))
+						{
+							ret[i] += @"\";
+						}
 					}
 				}
 				return ret;
