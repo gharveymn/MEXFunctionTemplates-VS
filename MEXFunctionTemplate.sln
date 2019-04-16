@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.539
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEXFunctionTemplate", "MEXFunctionTemplate\MEXFunctionTemplate.csproj", "{5EC44FCA-E747-4BA4-B2C9-49AAFE365C5A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEXFunctionTemplate_CPP_Matrix", "MEXFunctionTemplate\MEXFunctionTemplate_CPP_Matrix.csproj", "{5EC44FCA-E747-4BA4-B2C9-49AAFE365C5A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEXFunctionWizard", "MEXFunctionWizard\MEXFunctionWizard.csproj", "{1850A7FD-4688-4CE3-8692-AA0D78CA5BA1}"
 EndProject

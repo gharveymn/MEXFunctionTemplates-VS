@@ -16,7 +16,7 @@ namespace MatlabRootInputForm
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new UserInputForm());
+			Application.Run(new UserInputForm(Language.CPP));
 		}
 	}
 }
