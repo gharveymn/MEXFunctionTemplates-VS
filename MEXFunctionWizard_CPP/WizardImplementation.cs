@@ -72,19 +72,30 @@ namespace MEXFunctionWizard_CPP
 					replacementsDictionary.Add("$MATLAB_PREPROCESSOR_DEFINITIONS$",
 						ml_config.GetPreprocessorDefinitions());
 					replacementsDictionary.Add("$MEXEXT$", ml_config.GetMEXExtension());
-
-					var serviceProvider = new ServiceProvider((IServiceProvider) automationObject);
-					// IServiceProvider serviceProvider = (IServiceProvider) automationObject;
-					ITextTemplating t4 = serviceProvider.GetService(typeof(STextTemplating)) as ITextTemplating;
-					ITextTemplatingSessionHost sessionHost = t4 as ITextTemplatingSessionHost;
-
-					sessionHost.Session = sessionHost.CreateSession();
-					sessionHost.Session["$VERSION_SOURCE$"] = (versource != null) ? versource : "null";
+					
 
 					string template_source_folder = Path.GetDirectoryName(customParams[0].ToString());
-					string matlab_targets_path = Path.Combine(template_source_folder, "matlab.targets");
-					string res = t4.ProcessTemplate(matlab_targets_path, File.ReadAllText(matlab_targets_path));
-					File.WriteAllText(Path.Combine(replacementsDictionary["$destinationfolder$"], "matlab.targets"), res);
+					string src_path;
+					string dst_path;
+
+					if(ml_config.GetVersionSource() != null)
+					{
+						src_path = Path.Combine(template_source_folder, "matlab_versource.targets");
+					}
+					else
+					{
+						src_path = Path.Combine(template_source_folder, "matlab.targets");
+					}
+					dst_path = Path.Combine(replacementsDictionary["$destinationdirectory$"],
+						"matlab.targets");
+
+					File.Copy(src_path, dst_path);
+
+					src_path = Path.Combine(template_source_folder, "matlab.xml");
+					dst_path = Path.Combine(replacementsDictionary["$destinationdirectory$"],
+						"matlab.xml");
+
+					File.Copy(src_path, dst_path);
 
 				}
 			}
