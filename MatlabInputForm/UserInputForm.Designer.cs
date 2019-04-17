@@ -1,4 +1,4 @@
-﻿namespace MatlabRootInputForm
+﻿namespace MatlabInputForm
 {
 	partial class UserInputForm
 	{

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<PropertyPageSchema Include="$(MSBuildThisFileDirectory)matlab.xml" />
+	</ItemGroup>
+	<Target
+	  Name="MEXLink"
+	  BeforeTargets="Link">
+		<ItemGroup>
+			<Link>
+				<AdditionalOptions>/EXPORT:mexFunction %(Link.AdditionalOptions)</AdditionalOptions>
+			</Link>
+		</ItemGroup>
+	</Target>
+</Project>

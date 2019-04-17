@@ -12,8 +12,8 @@
     <ProjectGuid>{5EC44FCA-E747-4BA4-B2C9-49AAFE365C5A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MEX_Function_Template</RootNamespace>
-    <AssemblyName>MEX Function Template</AssemblyName>
+    <RootNamespace>MEXFunctionTemplate_CPP</RootNamespace>
+    <AssemblyName>MEXFunctionTemplate_CPP</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <GeneratePkgDefFile>false</GeneratePkgDefFile>
@@ -58,20 +58,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="AssemblyInfo.cs" />
-    <None Include="MEXFunctionTemplate.ico" />
+    <None Include="matlab.targets" />
+    <None Include="mexfunction" />
+    <None Include="MEXFunctionTemplate_CPP.ico" />
+    <None Include="ProjectTemplate.vcxproj" />
   </ItemGroup>
   <ItemGroup>
-    <VSTemplate Include="MEXFunctionTemplate.vstemplate">
+    <VSTemplate Include="MEXFunctionTemplate_CPP.vstemplate">
       <SubType>Designer</SubType>
     </VSTemplate>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ProjectTemplate">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="mexfunction" />
+    <Content Include="matlab.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />

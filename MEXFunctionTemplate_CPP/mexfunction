@@ -1,0 +1,49 @@
+$if$ ($SAFEAPI$ == C_MATRIX_SEPARATED)#include "mex.h"
+
+void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[]) {
+
+} $endif$$if$ ($SAFEAPI$ == C_MATRIX_INTERLEAVED)#include "mex.h"
+
+void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[]) {
+
+} $endif$$if$ ($SAFEAPI$ == CPP_MATRIX_SEPARATED)#include "mex.h"
+
+void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[]) {
+
+} $endif$$if$ ($SAFEAPI$ == CPP_MATRIX_INTERLEAVED)#include "mex.h"
+
+void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[]) {
+
+} $endif$$if$ ($SAFEAPI$ == CPP_DATA)#include "mex.hpp"
+#include "mexAdapter.hpp"
+
+class MexFunction : public matlab::mex::Function {
+public:
+    void operator()(matlab::mex::ArgumentList outputs, matlab::mex::ArgumentList inputs) {
+        
+    }
+}; $endif$$if$ ($SAFEAPI$ == FORTRAN_MATRIX_SEPARATED)#include "fintrf.h"
+C     Gateway routine
+      subroutine mexFunction(nlhs, plhs, nrhs, prhs)
+ 
+C     Declarations
+      implicit none
+
+C     mexFunction arguments:
+      mwPointer plhs(*), prhs(*)
+      integer nlhs, nrhs  
+
+      return
+      end $endif$$if$ ($SAFEAPI$ == FORTRAN_MATRIX_INTERLEAVED)#include "fintrf.h"
+C     Gateway routine
+      subroutine mexFunction(nlhs, plhs, nrhs, prhs)
+ 
+C     Declarations
+      implicit none
+
+C     mexFunction arguments:
+      mwPointer plhs(*), prhs(*)
+      integer nlhs, nrhs  
+
+      return
+      end $endif$

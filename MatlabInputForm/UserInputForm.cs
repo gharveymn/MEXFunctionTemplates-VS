@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Win32;
 
-namespace MatlabRootInputForm
+namespace MatlabInputForm
 {
 
 	public enum Language
@@ -197,7 +197,9 @@ namespace MatlabRootInputForm
 			}
 			if(!MatlabConfiguration.CheckMatlabExe(matlabroot))
 			{
-				throw new MatlabNotFoundException(@"Could not locate matlab.exe. An example path: C:\Program Files\MATLAB\R2019a");
+				MessageBox.Show(@"Could not locate matlab.exe from MATLAB root """ + matlabroot + @""".
+Example path: C:\Program Files\MATLAB\R2019a", "Invalid MATLAB Root Directory", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
 			}
 			
 			UserInputForm.config = new MatlabConfiguration(matlabroot,
@@ -338,18 +340,18 @@ namespace MatlabRootInputForm
 
 		public string GetIncludePath()
 		{
-			return @"$(MatlabRoot)extern\include;$(MatlabRoot)simulink\include";
+			return @"$(MatlabRoot)extern\include\;$(MatlabRoot)simulink\include\";
 		}
 
 		public string GetLibraryPath()
 		{
 			if(this.platform.Equals(UserInputForm.PLATFORM_x64))
 			{
-				return @"$(MatlabRoot)extern\lib\win64\microsoft";
+				return @"$(MatlabRoot)extern\lib\win64\microsoft\";
 			}
 			else
 			{
-				return @"$(MatlabRoot)extern\lib\win32\microsoft";
+				return @"$(MatlabRoot)extern\lib\win32\microsoft\";
 			}
 		}
 
@@ -369,16 +371,22 @@ namespace MatlabRootInputForm
 			switch(this.language)
 			{
 				case Language.C:
-					versource_name += @"\c_mexapi_version.c";
+					versource_name += @"\extern\version\c_mexapi_version.c";
 					break;
 				case Language.CPP:
-					versource_name += @"\cpp_mexapi_version.cpp";
+					versource_name += @"\extern\version\cpp_mexapi_version.cpp";
 					break;
 				case Language.FORTRAN:
-					versource_name += @"\fortran_mexapi_version.F";
+					versource_name += @"\extern\version\fortran_mexapi_version.F";
 					break;
 			}
 			return File.Exists(versource_name)? versource_name : null;
+		}
+
+		public string GetVersionSourceExists()
+		{
+			// looks stupid but it's necessary for conditional parameter substitution
+			return (GetVersionSource() != null)? "true" : "false";
 		}
 
 		public string GetAdditionalLinkerOptions()
@@ -415,54 +423,6 @@ namespace MatlabRootInputForm
 			return (this.platform == Platform.x64) ? ".mexw64" : ".mexw32";
 		}
 
-		public string GetInitialProjectFileResource()
-		{
-			switch(language)
-			{
-				case Language.C:
-				{
-					if(this.is_interleaved)
-					{
-						return "mexfunction_matrix_interleaved.c";
-					}
-					else
-					{
-						return "mexfunction_matrix_separated.c";
-					}
-				}
-				case Language.CPP:
-				{
-					if(this.api.Equals(UserInputForm.MATRIX_API))
-					{
-						if(this.is_interleaved)
-						{
-							return "mexfunction_matrix_interleaved.cpp";
-						}
-						else
-						{
-							return "mexfunction_matrix_separated.cpp";
-						}
-					}
-					else
-					{
-						return "mexfunction_data.cpp";
-					}
-				}
-				case Language.FORTRAN:
-				{
-					if(this.is_interleaved)
-					{
-						return "mexfunction_matrix_interleaved.F";
-					}
-					else
-					{
-						return "mexfunction_matrix_separated.F";
-					}
-				}
-			}
-
-			return null;
-		}
 
 		public string GetFileExtension()
 		{
