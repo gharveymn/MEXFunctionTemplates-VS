@@ -7,7 +7,7 @@
     Name="MEXCompile"
     BeforeTargets="ClCompile">
     <ItemGroup>
-      <ClCompile Condition="Exists('$(MatlabRoot)extern\version\cpp_mexapi_version.cpp')" Include="$(MatlabRoot)extern\version\cpp_mexapi_version.cpp">
+      <ClCompile Condition="Exists('$(MatlabRoot)extern\version\c_mexapi_version.c')" Include="$(MatlabRoot)extern\version\c_mexapi_version.c">
         <PreprocessorDefinitions>MATLAB_MEXCMD_RELEASE=R2017b;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       </ClCompile>
     </ItemGroup>
@@ -16,7 +16,7 @@
     Name="MEXLink"
     BeforeTargets="Link">
     <ItemGroup>
-      <Link Condition="Exists('$(MatlabRoot)extern\version\cpp_mexapi_version.cpp')">
+      <Link Condition="Exists('$(MatlabRoot)extern\version\c_mexapi_version.c')">
         <AdditionalOptions>/EXPORT:mexfilerequiredapiversion %(Link.AdditionalOptions)</AdditionalOptions>
       </Link>
       <Link>

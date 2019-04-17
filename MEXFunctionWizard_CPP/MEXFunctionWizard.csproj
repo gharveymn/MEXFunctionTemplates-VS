@@ -19,8 +19,8 @@
     <ProjectGuid>{1850A7FD-4688-4CE3-8692-AA0D78CA5BA1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MEXFunctionWizard_CPP</RootNamespace>
-    <AssemblyName>MEXFunctionWizard_CPP</AssemblyName>
+    <RootNamespace>MEXFunctionWizard</RootNamespace>
+    <AssemblyName>MEXFunctionWizard</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <GeneratePkgDefFile>false</GeneratePkgDefFile>
     <IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
@@ -90,6 +90,13 @@
     <ProjectReference Include="..\MEXFunctionTemplate_CPP\MEXFunctionTemplate_CPP.csproj">
       <Project>{5EC44FCA-E747-4BA4-B2C9-49AAFE365C5A}</Project>
       <Name>MEXFunctionTemplate_CPP</Name>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
+    <ProjectReference Include="..\MEXFunctionTemplate_C\MEXFunctionTemplate_C.csproj">
+      <Project>{280887D3-850C-4843-BBA2-AF60F55A343F}</Project>
+      <Name>MEXFunctionTemplate_C</Name>
       <VSIXSubPath>ProjectTemplates</VSIXSubPath>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
