@@ -14,7 +14,8 @@
 	<TemplateContent>
 		<Project File="ProjectTemplate.vcxproj" ReplaceParameters="true">
 			<ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$safeprojectname$$FILEEXT$">mexfunction</ProjectItem>
-			<ProjectItem ReplaceParameters="true">matlab.targets</ProjectItem>
+			<ProjectItem>matlab.targets</ProjectItem>
+			<ProjectItem>matlab_versource.targets</ProjectItem>
 			<ProjectItem>matlab.xml</ProjectItem>
 		</Project>
 	</TemplateContent>

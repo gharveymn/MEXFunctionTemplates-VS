@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="AssemblyInfo.cs" />
+    <None Include="matlab_versource.targets" />
     <None Include="matlab.targets" />
     <None Include="mexfunction" />
     <None Include="MEXFunctionTemplate_CPP.ico" />
