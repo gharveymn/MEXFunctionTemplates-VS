@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{DDC739A2-457B-4588-8998-BC13945E7552}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>MatlabRootInputForm</RootNamespace>
-    <AssemblyName>MatlabRootInputForm</AssemblyName>
+    <RootNamespace>MatlabInputForm</RootNamespace>
+    <AssemblyName>MatlabInputForm</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -86,15 +86,12 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UserInputForm.resx">
       <DependentUpon>UserInputForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="genekey.snk" />
-    <None Include="Properties\DataSources\MatlabRootInputForm.Properties.Resources.datasource" />
-    <None Include="Properties\DataSources\MatlabRootInputForm.Properties.Settings.datasource" />
-    <None Include="Properties\DataSources\Program.datasource" />
-    <None Include="Properties\DataSources\UserInputForm.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

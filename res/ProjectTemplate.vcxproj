@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup Label="ProjectConfigurations">
+		<ProjectConfiguration Include="Debug|$PLATFORM$">
+			<Configuration>Debug</Configuration>
+			<Platform>$PLATFORM$</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Release|$PLATFORM$">
+			<Configuration>Release</Configuration>
+			<Platform>$PLATFORM$</Platform>
+		</ProjectConfiguration>
+	</ItemGroup>
+	<PropertyGroup Label="Globals">
+		<VCProjectVersion>15.0</VCProjectVersion>
+		<ProjectGuid>$guid1$</ProjectGuid>
+		<Keyword>Win32Proj</Keyword>
+	</PropertyGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|$PLATFORM$'" Label="Configuration">
+		<ConfigurationType>DynamicLibrary</ConfigurationType>
+		<UseDebugLibraries>true</UseDebugLibraries>
+		<PlatformToolset>v141</PlatformToolset>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|$PLATFORM$'" Label="Configuration">
+		<ConfigurationType>DynamicLibrary</ConfigurationType>
+		<UseDebugLibraries>false</UseDebugLibraries>
+		<PlatformToolset>v141</PlatformToolset>
+	</PropertyGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+	<ImportGroup Label="ExtensionSettings" />
+	<ImportGroup Label="Shared">
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|$PLATFORM$'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|$PLATFORM$'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+	</ImportGroup>
+	<PropertyGroup Label="UserMacros" />
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|$PLATFORM$'">
+		<LinkIncremental>false</LinkIncremental>
+		<TargetExt>$MEXEXT$</TargetExt>
+		<OutDir>$(SolutionDir)Bin\$(Platform)\$(Configuration)\</OutDir>
+		<EmbedManifest>false</EmbedManifest>
+		<IntDir>$(OutDir)Build\$(Platform)\$(Configuration)\</IntDir>
+		<MatlabRoot>$MATLABROOT$</MatlabRoot>
+		<Matlab_IncludePath>$MATLAB_INCLUDE_PATH$</Matlab_IncludePath>
+		<Matlab_LibraryPath>$MATLAB_LIBRARY_PATH$</Matlab_LibraryPath>
+		<Matlab_Dependencies>$MATLAB_DEPENDS$</Matlab_Dependencies>
+		<Matlab_PreprocessorDefinitions>$MATLAB_PREPROCESSOR_DEFINITIONS$</Matlab_PreprocessorDefinitions>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|$PLATFORM$'">
+		<LinkIncremental>false</LinkIncremental>
+		<TargetExt>$MEXEXT$</TargetExt>
+		<OutDir>$(SolutionDir)Bin\$(Platform)\$(Configuration)\</OutDir>
+		<EmbedManifest>false</EmbedManifest>
+		<IntDir>$(OutDir)Build\$(Platform)\$(Configuration)\</IntDir>
+		<MatlabRoot>$MATLABROOT$</MatlabRoot>
+		<Matlab_IncludePath>$MATLAB_INCLUDE_PATH$</Matlab_IncludePath>
+		<Matlab_LibraryPath>$MATLAB_LIBRARY_PATH$</Matlab_LibraryPath>
+		<Matlab_Dependencies>$MATLAB_DEPENDS$</Matlab_Dependencies>
+		<Matlab_PreprocessorDefinitions>$MATLAB_PREPROCESSOR_DEFINITIONS$</Matlab_PreprocessorDefinitions>
+	</PropertyGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|$PLATFORM$'">
+		<ClCompile>
+			<PreprocessorDefinitions>$(Matlab_PreprocessorDefinitions);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<AdditionalIncludeDirectories>$(Matlab_IncludePath);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+			<RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+			<DebugInformationFormat>OldStyle</DebugInformationFormat>
+			<StructMemberAlignment>8Bytes</StructMemberAlignment>
+			<ExceptionHandling>SyncCThrow</ExceptionHandling>
+			<RuntimeTypeInfo>true</RuntimeTypeInfo>
+			<WarningLevel>Level3</WarningLevel>
+		</ClCompile>
+		<Link>
+			<GenerateDebugInformation>true</GenerateDebugInformation>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+			<AdditionalLibraryDirectories>$(Matlab_LibraryPath);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+			<AdditionalDependencies>$(Matlab_Dependencies);%(AdditionalDependencies)</AdditionalDependencies>
+			<ProgramDatabaseFile>%(OutputFile).pdb</ProgramDatabaseFile>
+			<ShowProgress>NotSet</ShowProgress>
+		</Link>
+		<Manifest>
+			<OutputManifestFile>$(OutDir)$(TargetName)$(TargetExt).manifest</OutputManifestFile>
+		</Manifest>
+		<ManifestResourceCompile>
+			<ResourceOutputFileName>$(IntDir)$(TargetName)$(TargetExt).manifest.res</ResourceOutputFileName>
+		</ManifestResourceCompile>
+		<PostBuildEvent>
+			<Command>del "$(OutDir)$(TargetName).exp" "$(OutDir)$(TargetName).lib" "$(OutDir)$(TargetName)$(TargetExt).manifest" "$(OutDir)$(TargetName).ilk"</Command>
+			<Message>   Deleting $(OutDir)$(TargetName).exp $(OutDir)$(TargetName).lib $(OutDir)$(TargetName)$(TargetExt).manifest and $(OutDir)$(TargetName).ilk</Message>
+		</PostBuildEvent>
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|$PLATFORM$'">
+		<ClCompile>
+			<PreprocessorDefinitions>$(Matlab_PreprocessorDefinitions);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<AdditionalIncludeDirectories>$(Matlab_IncludePath);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+			<RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+			<DebugInformationFormat>OldStyle</DebugInformationFormat>
+			<Optimization>MaxSpeed</Optimization>
+			<StructMemberAlignment>8Bytes</StructMemberAlignment>
+			<ExceptionHandling>SyncCThrow</ExceptionHandling>
+			<RuntimeTypeInfo>true</RuntimeTypeInfo>
+			<BasicRuntimeChecks>Default</BasicRuntimeChecks>
+			<SupportJustMyCode>true</SupportJustMyCode>
+			<OmitFramePointers>false</OmitFramePointers>
+			<WarningLevel>Level3</WarningLevel>
+		</ClCompile>
+		<Link>
+			<GenerateDebugInformation>false</GenerateDebugInformation>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+			<AdditionalLibraryDirectories>$(Matlab_LibraryPath);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+			<AdditionalDependencies>$(Matlab_Dependencies);%(AdditionalDependencies)</AdditionalDependencies>
+			<ProgramDatabaseFile>%(OutputFile).pdb</ProgramDatabaseFile>
+			<ShowProgress>NotSet</ShowProgress>
+		</Link>
+		<PostBuildEvent>
+			<Command>del "$(OutDir)$(TargetName).exp" "$(OutDir)$(TargetName).lib" "$(OutDir)$(TargetName)$(TargetExt).manifest" "$(OutDir)$(TargetName).ilk"</Command>
+			<Message>   Deleting $(OutDir)$(TargetName).exp $(OutDir)$(TargetName).lib $(OutDir)$(TargetName)$(TargetExt).manifest and $(OutDir)$(TargetName).ilk</Message>
+		</PostBuildEvent>
+		<Manifest>
+			<OutputManifestFile>$(OutDir)$(TargetName)$(TargetExt).manifest</OutputManifestFile>
+		</Manifest>
+		<ManifestResourceCompile>
+			<ResourceOutputFileName>$(IntDir)$(TargetName)$(TargetExt).manifest.res</ResourceOutputFileName>
+		</ManifestResourceCompile>
+	</ItemDefinitionGroup>
+	<ItemGroup>
+		<ClCompile Include="$safeprojectname$$FILEEXT$" />
+	</ItemGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+	<Import Project="$(MSBuildThisFileDirectory)\matlab.targets" />
+</Project>

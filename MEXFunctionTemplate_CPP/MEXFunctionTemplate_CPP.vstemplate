@@ -3,7 +3,7 @@
 	<TemplateData>
 		<Name>MEX Function (C++)</Name>
 		<Description>Create a C++ MEX Function</Description>
-		<Icon>MEXFunctionTemplate.ico</Icon>
+		<Icon>MEXFunctionTemplate_CPP.ico</Icon>
 		<ProjectType>VC</ProjectType>
 		<SortOrder>1000</SortOrder>
 		<TemplateID>411a2ca6-5731-4fd0-a225-8a63d0446933</TemplateID>
@@ -12,12 +12,14 @@
 		<ProvideDefaultName>true</ProvideDefaultName>
 	</TemplateData>
 	<TemplateContent>
-		<Project File="ProjectTemplate" TargetFileName="$safeprojectname$$PROJECTEXT$" ReplaceParameters="true">
+		<Project File="ProjectTemplate.vcxproj" ReplaceParameters="true">
 			<ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$safeprojectname$$FILEEXT$">mexfunction</ProjectItem>
+			<ProjectItem ReplaceParameters="true">matlab.targets</ProjectItem>
+			<ProjectItem>matlab.xml</ProjectItem>
 		</Project>
 	</TemplateContent>
 	<WizardExtension>
-		<Assembly>MEXFunctionWizard, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=dd22504a0a65711c</Assembly>
-		<FullClassName>MEXFunctionWizard.WizardImplementation</FullClassName>
+		<Assembly>MEXFunctionWizard_CPP, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=dd22504a0a65711c</Assembly>
+		<FullClassName>MEXFunctionWizard_CPP.WizardImplementation</FullClassName>
 	</WizardExtension>
 </VSTemplate>
