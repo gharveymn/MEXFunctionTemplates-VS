@@ -509,6 +509,35 @@ Example path: C:\Program Files\MATLAB\R2019a", "Invalid MATLAB Root Directory", 
 			}
 		}
 
+		public string GetAPIShortName()
+		{
+			if(this.api.Equals(UserInputForm.DATA_API))
+			{
+				return "CPP_DATA";
+			}
+			else
+			{
+				switch(language)
+				{
+					case Language.C:
+					{
+
+						return "C_MATRIX";
+					}
+					case Language.CPP:
+					{
+						return "CPP_MATRIX";
+					}
+					case Language.FORTRAN:
+					{
+						return "F_MATRIX";
+					}
+				}
+			}
+
+			return "";
+		}
+
 		public string GetProjectFilenameExtension()
 		{
 			switch(language)
@@ -526,6 +555,33 @@ Example path: C:\Program Files\MATLAB\R2019a", "Invalid MATLAB Root Directory", 
 
 			return null;
 		}
+
+		public string GetCompileAs()
+		{
+			switch(language)
+			{
+				case Language.C:
+				{
+					return "CompileAsC";
+				}
+				case Language.CPP:
+				{
+					return "CompileAsCpp";
+				}
+				case Language.FORTRAN:
+				{
+					return "CompileAsFortran";
+				}
+			}
+
+			return null;
+		}
+
+		public string GetTargetMachine()
+		{
+			return (this.platform == Platform.x64)? "MachineX64" : "MachineX86";
+		}
+
 	}
 
 	public class MatlabNotFoundException : Exception

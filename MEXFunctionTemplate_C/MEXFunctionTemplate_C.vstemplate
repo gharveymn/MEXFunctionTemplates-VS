@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
 	<TemplateData>
-		<Name>MEX Function (C++)</Name>
-		<Description>Create a C++ MEX Function</Description>
-		<Icon>MEXFunctionTemplate_CPP.ico</Icon>
-		<ProjectType>IntelFortran</ProjectType>
+		<Name>MEX Function (C)</Name>
+		<Description>Create a C MEX Function</Description>
+		<Icon>MEXFunctionTemplate_C.ico</Icon>
+		<ProjectType>VC</ProjectType>
 		<SortOrder>1000</SortOrder>
-		<TemplateID>411a2ca6-5731-4fd0-a225-8a63d0446933</TemplateID>
+		<TemplateID>ee8f74dc-57b2-42c3-a467-5717a1237f4a</TemplateID>
 		<CreateNewFolder>true</CreateNewFolder>
 		<DefaultName>MEXFunction</DefaultName>
 		<ProvideDefaultName>true</ProvideDefaultName>

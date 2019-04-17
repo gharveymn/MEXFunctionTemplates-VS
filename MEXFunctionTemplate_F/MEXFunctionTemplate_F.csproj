@@ -9,11 +9,11 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>{5EC44FCA-E747-4BA4-B2C9-49AAFE365C5A}</ProjectGuid>
+    <ProjectGuid>{E1E45033-32D7-4EBE-8A6B-19A29234EAFD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MEXFunctionTemplate_CPP</RootNamespace>
-    <AssemblyName>MEXFunctionTemplate_CPP</AssemblyName>
+    <RootNamespace>MEXFunctionTemplate_F</RootNamespace>
+    <AssemblyName>MEXFunctionTemplate_F</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <GeneratePkgDefFile>false</GeneratePkgDefFile>
@@ -60,13 +60,11 @@
     <None Include="AssemblyInfo.cs" />
     <None Include="matlab.targets" />
     <None Include="mexfunction" />
-    <None Include="MEXFunctionTemplate_CPP.ico" />
-    <None Include="ProjectTemplate.vcxproj" />
+    <None Include="ProjectTemplate.csproj" />
+    <None Include="MEXFunctionTemplate_F.ico" />
   </ItemGroup>
   <ItemGroup>
-    <VSTemplate Include="MEXFunctionTemplate_CPP.vstemplate">
-      <SubType>Designer</SubType>
-    </VSTemplate>
+    <VSTemplate Include="MEXFunctionTemplate_F.vstemplate" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="matlab.xml" />

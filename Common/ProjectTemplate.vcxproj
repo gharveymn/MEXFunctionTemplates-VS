@@ -71,6 +71,7 @@
 			<ExceptionHandling>SyncCThrow</ExceptionHandling>
 			<RuntimeTypeInfo>true</RuntimeTypeInfo>
 			<WarningLevel>Level3</WarningLevel>
+			<CompileAs>$COMPILE_AS$</CompileAs>
 		</ClCompile>
 		<Link>
 			<GenerateDebugInformation>true</GenerateDebugInformation>
@@ -78,7 +79,7 @@
 			<AdditionalLibraryDirectories>$(Matlab_LibraryPath);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
 			<AdditionalDependencies>$(Matlab_Dependencies);%(AdditionalDependencies)</AdditionalDependencies>
 			<ProgramDatabaseFile>%(OutputFile).pdb</ProgramDatabaseFile>
-			<ShowProgress>NotSet</ShowProgress>
+			<TargetMachine>$TARGET_MACHINE$</TargetMachine>
 		</Link>
 		<Manifest>
 			<OutputManifestFile>$(OutDir)$(TargetName)$(TargetExt).manifest</OutputManifestFile>
@@ -105,6 +106,7 @@
 			<SupportJustMyCode>true</SupportJustMyCode>
 			<OmitFramePointers>false</OmitFramePointers>
 			<WarningLevel>Level3</WarningLevel>
+			<CompileAs>$COMPILE_AS$</CompileAs>
 		</ClCompile>
 		<Link>
 			<GenerateDebugInformation>false</GenerateDebugInformation>
@@ -112,7 +114,7 @@
 			<AdditionalLibraryDirectories>$(Matlab_LibraryPath);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
 			<AdditionalDependencies>$(Matlab_Dependencies);%(AdditionalDependencies)</AdditionalDependencies>
 			<ProgramDatabaseFile>%(OutputFile).pdb</ProgramDatabaseFile>
-			<ShowProgress>NotSet</ShowProgress>
+			<TargetMachine>$TARGET_MACHINE$</TargetMachine>
 		</Link>
 		<PostBuildEvent>
 			<Command>del "$(OutDir)$(TargetName).exp" "$(OutDir)$(TargetName).lib" "$(OutDir)$(TargetName)$(TargetExt).manifest" "$(OutDir)$(TargetName).ilk"</Command>
@@ -128,6 +130,4 @@
 	<ItemGroup>
 		<ClCompile Include="$safeprojectname$$FILEEXT$" />
 	</ItemGroup>
-	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-	<Import Project="$(MSBuildThisFileDirectory)\matlab.targets" />
-</Project>
+	<Import

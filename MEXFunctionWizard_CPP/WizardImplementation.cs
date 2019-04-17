@@ -1,18 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using System.Security.Cryptography;
-using Microsoft.Win32;
 using Microsoft.VisualStudio.TemplateWizard;
 using System.Windows.Forms;
 using EnvDTE;
 using MatlabInputForm;
-using Microsoft.VisualStudio.OLE.Interop;
-using Microsoft.VisualStudio.TextTemplating;
-using Microsoft.VisualStudio.TextTemplating.Interfaces;
-using Microsoft.VisualStudio.TextTemplating.VSHost;
-using Microsoft.VisualStudio.Shell;
 
-namespace MEXFunctionWizard_CPP
+namespace MEXFunctionWizard
 {
 	public class WizardImplementation : IWizard
 	{
@@ -46,9 +39,32 @@ namespace MEXFunctionWizard_CPP
 		{
 			try
 			{
+				// first element of customParams is the vstemplate file
+				string template_source_path = customParams[0].ToString();
+				string template_source_folder = Path.GetDirectoryName(template_source_path);
+				string template_source_file = Path.GetFileNameWithoutExtension(template_source_path);
+
+				MatlabInputForm.Language language;
+				if(template_source_file.EndsWith("C"))
+				{
+					language = MatlabInputForm.Language.C;
+				}
+				else if(template_source_file.EndsWith("CPP"))
+				{
+					language = MatlabInputForm.Language.CPP;
+				}
+				else if(template_source_file.EndsWith("F"))
+				{
+					language = MatlabInputForm.Language.FORTRAN;
+				}
+				else
+				{
+					throw new System.Exception();
+				}
+
 				// Display a form to the user. The form collects
 				// input for the custom message.
-				using(inputForm = new UserInputForm(MatlabInputForm.Language.CPP))
+				using(inputForm = new UserInputForm(language))
 				{
 					if(inputForm.ShowDialog() != DialogResult.OK)
 					{
@@ -59,11 +75,13 @@ namespace MEXFunctionWizard_CPP
 					MatlabConfiguration ml_config = UserInputForm.config;
 
 					// Add custom parameters.
-					string versource = ml_config.GetVersionSource();
-					replacementsDictionary.Add("$VERSION_SOURCE$", (versource != null)? versource : "null");
+					replacementsDictionary.Add("$TARGET_MACHINE$", ml_config.GetTargetMachine());
+					replacementsDictionary.Add("$COMPILE_AS$", ml_config.GetCompileAs());
+					replacementsDictionary.Add("$TARGETS_FILE$", Path.Combine(template_source_folder, "matlab.targets"));
+					replacementsDictionary.Add("$RULE_FILE$", Path.Combine(template_source_folder, "matlab.xml"));
 					replacementsDictionary.Add("$PROJECTEXT$", ml_config.GetProjectFilenameExtension());
 					replacementsDictionary.Add("$FILEEXT$", ml_config.GetFileExtension());
-					replacementsDictionary.Add("$SAFEAPI$", ml_config.GetSafeAPIName());
+					replacementsDictionary.Add("$API_SHORT_NAME$", ml_config.GetAPIShortName());
 					replacementsDictionary.Add("$MATLABROOT$", ml_config.GetMatlabRoot());
 					replacementsDictionary.Add("$PLATFORM$", ml_config.GetPlatformString());
 					replacementsDictionary.Add("$MATLAB_INCLUDE_PATH$", ml_config.GetIncludePath());
@@ -72,30 +90,7 @@ namespace MEXFunctionWizard_CPP
 					replacementsDictionary.Add("$MATLAB_PREPROCESSOR_DEFINITIONS$",
 						ml_config.GetPreprocessorDefinitions());
 					replacementsDictionary.Add("$MEXEXT$", ml_config.GetMEXExtension());
-					
 
-					string template_source_folder = Path.GetDirectoryName(customParams[0].ToString());
-					string src_path;
-					string dst_path;
-
-					if(ml_config.GetVersionSource() != null)
-					{
-						src_path = Path.Combine(template_source_folder, "matlab_versource.targets");
-					}
-					else
-					{
-						src_path = Path.Combine(template_source_folder, "matlab.targets");
-					}
-					dst_path = Path.Combine(replacementsDictionary["$destinationdirectory$"],
-						"matlab.targets");
-
-					File.Copy(src_path, dst_path);
-
-					src_path = Path.Combine(template_source_folder, "matlab.xml");
-					dst_path = Path.Combine(replacementsDictionary["$destinationdirectory$"],
-						"matlab.xml");
-
-					File.Copy(src_path, dst_path);
 
 				}
 			}
