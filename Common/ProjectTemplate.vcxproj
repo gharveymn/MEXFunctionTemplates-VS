@@ -130,4 +130,6 @@
 	<ItemGroup>
 		<ClCompile Include="$safeprojectname$$FILEEXT$" />
 	</ItemGroup>
-	<Import
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+	<Import Project="$TARGETS_FILE$" />
+</Project>

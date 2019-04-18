@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VisualStudioProject ProjectType="typeDynamicLibrary" ProjectCreator="Intel Fortran" Keyword="Dll" Version="11.0" ProjectIdGuid="$guid1$">
+	<Platforms>
+		<Platform Name="x64"/>
+	</Platforms>
+	<Configurations>
+		<Configuration Name="Debug|x64" ConfigurationType="typeDynamicLibrary">
+			<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" DebugInformationFormat="debugEnabled" Optimization="optimizeDisabled" Preprocess="preprocessYes" AdditionalIncludeDirectories="C:\Program Files\MATLAB\R2019a\extern\include" PreprocessorDefinitions="MATLAB_DEFAULT_RELEASE=R2017b;USE_MEX_CMD;MATLAB_MEX_FILE" SourceFileFormat="fileFormatFixed" BackslashAsNormalCharacter="false" WarnInterfaces="true" IntegerKIND="integerKIND8" FloatingPointModel="source" Traceback="true" BoundsCheck="true" StackFrameCheck="true"/>
+			<Tool Name="VFLinkerTool" AdditionalOptions="/EXPORT:MEXFUNCTION /EXPORT:MEXFILEREQUIREDAPIVERSION" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" AdditionalLibraryDirectories="C:\Program Files\MATLAB\R2019a\extern\lib\win64\microsoft" GenerateDebugInformation="true" SubSystem="subSystemWindows" LinkDLL="true" AdditionalDependencies="libmx.lib libmex.lib libmat.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib"/>
+			<Tool Name="VFResourceCompilerTool"/>
+			<Tool Name="VFMidlTool" SuppressStartupBanner="true" TargetEnvironment="midlTargetAMD64"/>
+			<Tool Name="VFCustomBuildTool"/>
+			<Tool Name="VFPreLinkEventTool"/>
+			<Tool Name="VFPreBuildEventTool"/>
+			<Tool Name="VFPostBuildEventTool"/>
+			<Tool Name="VFManifestTool" SuppressStartupBanner="true"/>
+		</Configuration>
+		<Configuration Name="Release|x64" ConfigurationType="typeDynamicLibrary">
+			<Tool Name="VFFortranCompilerTool" AdditionalOptions="/MD /Qprec" SuppressStartupBanner="true" Preprocess="preprocessYes" AdditionalIncludeDirectories="C:\Program Files\MATLAB\R2019a\extern\include" PreprocessorDefinitions="NDEBUG;MATLAB_DEFAULT_RELEASE=R2017b;USE_MEX_CMD;MATLAB_MEX_FILE" SourceFileFormat="fileFormatFixed" BackslashAsNormalCharacter="false" IntegerKIND="integerKIND8" FloatingPointModel="source"/>
+			<Tool Name="VFLinkerTool" AdditionalOptions="/EXPORT:MEXFUNCTION /EXPORT:MEXFILEREQUIREDAPIVERSION" LinkIncremental="linkIncrementalNo" SuppressStartupBanner="true" AdditionalLibraryDirectories="C:\Program Files\MATLAB\R2019a\extern\lib\win64\microsoft" SubSystem="subSystemWindows" LinkDLL="true" AdditionalDependencies="libmx.lib libmex.lib libmat.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib"/>
+			<Tool Name="VFResourceCompilerTool"/>
+			<Tool Name="VFMidlTool" SuppressStartupBanner="true" TargetEnvironment="midlTargetAMD64"/>
+			<Tool Name="VFCustomBuildTool"/>
+			<Tool Name="VFPreLinkEventTool"/>
+			<Tool Name="VFPreBuildEventTool"/>
+			<Tool Name="VFPostBuildEventTool" CommandLine="ren &quot;$(OutDir)\$(TargetName)$(TargetExt)&quot; &quot;$(TargetName).mexw64&quot; &amp; del &quot;$(OutDir)\$(TargetName).exp&quot; &quot;$(OutDir)\$(TargetName).lib&quot; &quot;$(IntDir)\$(TargetName)$(TargetExt).embed.manifest&quot; &quot;$(OutDir)\$(TargetName).ilk&quot;" Description="Deleting $(OutDir)\$(TargetName).exp $(OutDir)\$(TargetName).lib $(IntDir)\$(TargetName)$(TargetExt).embed.manifest and $(OutDir)\$(TargetName).ilk"/>
+			<Tool Name="VFManifestTool" SuppressStartupBanner="true"/>
+		</Configuration>
+	</Configurations>
+	<Files>
+		<Filter Name="Header Files" Filter="fi;fd"/>
+		<Filter Name="Resource Files" Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe"/>
+		<Filter Name="Source Files" Filter="f90;for;f;fpp;ftn;def;odl;idl">
+			<File RelativePath="C:\Program Files\MATLAB\R2019a\extern\version\fortran_mexapi_version.F">
+				<FileConfiguration Name="Debug|x64">
+					<Tool Name="VFFortranCompilerTool" PreprocessorDefinitions="MATLAB_MEXCMD_RELEASE=R2017b"/>
+				</FileConfiguration>
+			</File>
+		</Filter>
+	</Files>
+	<Globals/>
+</VisualStudioProject>

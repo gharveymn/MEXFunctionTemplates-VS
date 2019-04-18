@@ -1,6 +1,6 @@
 ﻿namespace MatlabInputForm
 {
-	partial class UserInputForm
+	partial class DataApiForm
 	{
 		/// <summary>
 		/// Required designer variable.

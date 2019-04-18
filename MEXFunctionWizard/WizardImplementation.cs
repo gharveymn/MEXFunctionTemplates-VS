@@ -9,7 +9,8 @@ namespace MEXFunctionWizard
 {
 	public class WizardImplementation : IWizard
 	{
-		private UserInputForm inputForm;
+		private DataApiForm inputForm;
+		//private string test;
 
 		// This method is called before opening any item that
 		// has the OpenInEditor attribute.
@@ -19,6 +20,7 @@ namespace MEXFunctionWizard
 
 		public void ProjectFinishedGenerating(Project project)
 		{
+			
 		}
 
 		// This method is only called for item templates,
@@ -31,12 +33,16 @@ namespace MEXFunctionWizard
 		// This method is called after the project is created.
 		public void RunFinished()
 		{
+			//test = "stop run finished";
 		}
 
 		public void RunStarted(object automationObject,
 			Dictionary<string, string> replacementsDictionary,
 			WizardRunKind runKind, object[] customParams)
 		{
+
+			string dest_dir = replacementsDictionary["$destinationdirectory$"];
+
 			try
 			{
 				// first element of customParams is the vstemplate file
@@ -64,7 +70,7 @@ namespace MEXFunctionWizard
 
 				// Display a form to the user. The form collects
 				// input for the custom message.
-				using(inputForm = new UserInputForm(language))
+				using(inputForm = new DataApiForm(language))
 				{
 					if(inputForm.ShowDialog() != DialogResult.OK)
 					{
@@ -72,7 +78,7 @@ namespace MEXFunctionWizard
 						throw new WizardCancelledException();
 					}
 
-					MatlabConfiguration ml_config = UserInputForm.config;
+					MatlabConfiguration ml_config = DataApiForm.config;
 
 					// Add custom parameters.
 					replacementsDictionary.Add("$TARGET_MACHINE$", ml_config.GetTargetMachine());
@@ -96,7 +102,19 @@ namespace MEXFunctionWizard
 			}
 			catch (System.Exception ex)
 			{
-				MessageBox.Show(ex.ToString());
+				System.Diagnostics.Debug.WriteLine(ex);
+				if(ex is WizardCancelledException || ex is WizardBackoutException)
+				{
+					// Clean up the template that was written to disk
+					if(Directory.Exists(dest_dir))
+					{
+						Directory.Delete(dest_dir, true);
+					}
+				}
+				else
+				{
+					throw;
+				}
 			}
 		}
 

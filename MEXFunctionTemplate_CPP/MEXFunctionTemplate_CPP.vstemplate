@@ -4,7 +4,7 @@
 		<Name>MEX Function (C++)</Name>
 		<Description>Create a C++ MEX Function</Description>
 		<Icon>MEXFunctionTemplate_CPP.ico</Icon>
-		<ProjectType>IntelFortran</ProjectType>
+		<ProjectType>VC</ProjectType>
 		<SortOrder>1000</SortOrder>
 		<TemplateID>411a2ca6-5731-4fd0-a225-8a63d0446933</TemplateID>
 		<CreateNewFolder>true</CreateNewFolder>

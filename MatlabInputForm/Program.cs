@@ -16,7 +16,7 @@ namespace MatlabInputForm
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new UserInputForm(Language.CPP));
+			Application.Run(new MatrixAPIForm(Language.CPP));
 		}
 	}
 }
