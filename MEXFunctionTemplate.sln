@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.539
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEXFunctionTemplate_CPP", "MEXFunctionTemplate_CPP\MEXFunctionTemplate_CPP.csproj", "{5EC44FCA-E747-4BA4-B2C9-49AAFE365C5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEXFunctionWizard", "MEXFunctionWizard_CPP\MEXFunctionWizard.csproj", "{1850A7FD-4688-4CE3-8692-AA0D78CA5BA1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEXFunctionWizard", "MEXFunctionWizard\MEXFunctionWizard.csproj", "{1850A7FD-4688-4CE3-8692-AA0D78CA5BA1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatlabInputForm", "MatlabInputForm\MatlabInputForm.csproj", "{DDC739A2-457B-4588-8998-BC13945E7552}"
 EndProject

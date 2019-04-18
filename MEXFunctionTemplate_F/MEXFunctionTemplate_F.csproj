@@ -4,6 +4,12 @@
     <MinimumVisualStudioVersion>15.0</MinimumVisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>genekey.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -58,13 +64,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="AssemblyInfo.cs" />
+    <None Include="genekey.snk" />
     <None Include="matlab.targets" />
     <None Include="mexfunction" />
-    <None Include="ProjectTemplate.csproj" />
+    <Content Include="ProjectTemplate.vfproj" />
     <None Include="MEXFunctionTemplate_F.ico" />
   </ItemGroup>
   <ItemGroup>
-    <VSTemplate Include="MEXFunctionTemplate_F.vstemplate" />
+    <VSTemplate Include="MEXFunctionTemplate_F.vstemplate">
+      <SubType>Designer</SubType>
+    </VSTemplate>
   </ItemGroup>
   <ItemGroup>
     <Content Include="matlab.xml" />

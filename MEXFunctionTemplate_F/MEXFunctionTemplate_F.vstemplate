@@ -4,7 +4,7 @@
 		<Name>MEX Function (Fortran)</Name>
 		<Description>Create a Fortran MEX Function</Description>
 		<Icon>MEXFunctionTemplate_F.ico</Icon>
-		<ProjectType>VC</ProjectType>
+		<ProjectType>IntelFortran</ProjectType>
 		<SortOrder>1000</SortOrder>
 		<TemplateID>51598a5d-f080-4a52-8907-0d87b26b024d</TemplateID>
 		<CreateNewFolder>true</CreateNewFolder>
@@ -12,10 +12,8 @@
 		<ProvideDefaultName>true</ProvideDefaultName>
 	</TemplateData>
 	<TemplateContent>
-		<Project File="ProjectTemplate.vcxproj" TargetFileName="$safeprojectname$.vcxproj" ReplaceParameters="true">
-			<ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$safeprojectname$$FILEEXT$">mexfunction</ProjectItem>
-			<ProjectItem>matlab.targets</ProjectItem>
-			<ProjectItem TargetFileName="matlab.xml">matlab.xml</ProjectItem>
+		<Project File="ProjectTemplate.vfproj" ReplaceParameters="true">
+			<ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$safeprojectname$.c">mexfunction</ProjectItem>
 		</Project>
 	</TemplateContent>
 	<WizardExtension>
