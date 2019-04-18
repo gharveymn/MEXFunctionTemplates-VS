@@ -81,21 +81,21 @@ namespace MEXFunctionWizard
 					MatlabConfiguration ml_config = DataApiForm.config;
 
 					// Add custom parameters.
-					replacementsDictionary.Add("$TARGET_MACHINE$", ml_config.GetTargetMachine());
-					replacementsDictionary.Add("$COMPILE_AS$", ml_config.GetCompileAs());
+					replacementsDictionary.Add("$TARGET_MACHINE$", ml_config.imports.TargetMachine);
+					replacementsDictionary.Add("$COMPILE_AS$", ml_config.imports.CompileAs);
 					replacementsDictionary.Add("$TARGETS_FILE$", Path.Combine(template_source_folder, "matlab.targets"));
 					replacementsDictionary.Add("$RULE_FILE$", Path.Combine(template_source_folder, "matlab.xml"));
-					replacementsDictionary.Add("$PROJECTEXT$", ml_config.GetProjectFilenameExtension());
-					replacementsDictionary.Add("$FILEEXT$", ml_config.GetFileExtension());
-					replacementsDictionary.Add("$API_SHORT_NAME$", ml_config.GetAPIShortName());
-					replacementsDictionary.Add("$MATLABROOT$", ml_config.GetMatlabRoot());
-					replacementsDictionary.Add("$PLATFORM$", ml_config.GetPlatformString());
-					replacementsDictionary.Add("$MATLAB_INCLUDE_PATH$", ml_config.GetIncludePath());
-					replacementsDictionary.Add("$MATLAB_LIBRARY_PATH$", ml_config.GetLibraryPath());
-					replacementsDictionary.Add("$MATLAB_DEPENDS$", ml_config.GetDependencies());
+					replacementsDictionary.Add("$PROJECTEXT$", ml_config.imports.ProjectExtension);
+					replacementsDictionary.Add("$FILEEXT$", ml_config.imports.FileExtension);
+					replacementsDictionary.Add("$API_SHORT_NAME$", ml_config.imports.APIShortName);
+					replacementsDictionary.Add("$MATLABROOT$", ml_config.imports.MatlabRoot);
+					replacementsDictionary.Add("$PLATFORM$", ml_config.imports.PlatformName);
+					replacementsDictionary.Add("$MATLAB_INCLUDE_PATH$", ml_config.imports.IncludePath);
+					replacementsDictionary.Add("$MATLAB_LIBRARY_PATH$", ml_config.imports.LibraryPath);
+					replacementsDictionary.Add("$MATLAB_DEPENDS$", ml_config.imports.Dependencies);
 					replacementsDictionary.Add("$MATLAB_PREPROCESSOR_DEFINITIONS$",
-						ml_config.GetPreprocessorDefinitions());
-					replacementsDictionary.Add("$MEXEXT$", ml_config.GetMEXExtension());
+						ml_config.imports.PreprocessorDefinitions);
+					replacementsDictionary.Add("$MEXEXT$", ml_config.imports.MEXExtension);
 
 
 				}

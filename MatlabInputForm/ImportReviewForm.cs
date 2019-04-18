@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace MatlabInputForm
 {
-	public partial class ImportConfirmationForm : Form
+	public partial class ImportReviewForm : Form
 	{
-		public ImportConfirmationForm()
+		public ImportReviewForm()
 		{
 			InitializeComponent();
+		}
+
+		private void label1_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+		{
+
 		}
 	}
 }

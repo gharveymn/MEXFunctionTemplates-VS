@@ -16,7 +16,8 @@ namespace MatlabInputForm
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new MatrixAPIForm(Language.CPP));
+			MatlabConfiguration ml_config = new MatlabConfiguration(Language.CPP, API.MATRIX);
+			Application.Run(new MatrixAPIForm(ml_config));
 		}
 	}
 }

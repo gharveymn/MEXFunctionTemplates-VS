@@ -70,11 +70,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ImportConfirmationForm.cs">
+    <Compile Include="ImportReviewForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ImportConfirmationForm.Designer.cs">
-      <DependentUpon>ImportConfirmationForm.cs</DependentUpon>
+    <Compile Include="ImportReviewForm.Designer.cs">
+      <DependentUpon>ImportReviewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MatrixAPIForm.cs">
       <SubType>Form</SubType>
@@ -91,6 +91,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ImportReviewForm.resx">
+      <DependentUpon>ImportReviewForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

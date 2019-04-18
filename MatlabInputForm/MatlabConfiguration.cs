@@ -3,63 +3,152 @@ using System.IO;
 
 namespace MatlabInputForm
 {
+
+	public enum Language
+	{
+		C = 0,
+		CPP = 1,
+		FORTRAN = 2
+	};
+
+	public enum API
+	{
+		MATRIX = 0,
+		DATA   = 1
+	}
+
+	public enum Platform
+	{
+		X64 = 0,
+		X86 = 1
+	}
+
+	public enum ArrayDimensions
+	{
+		LARGE      = 0,
+		COMPATIBLE = 1
+	}
+
+	public enum ComplexStorage
+	{
+		SEPARATED   = 0,
+		INTERLEAVED = 1
+	}
+
+	public enum GraphicsClass
+	{
+		OBJECT = 0,
+		DOUBLE = 1
+	}
+
 	public class MatlabConfiguration
 	{
 
-		private string matlabroot;
-		private Platform platform;
-		private Language language;
-		private string api;
-		private bool is_interleaved;
+		private string _matlabroot;
 
-		public MatlabConfiguration(string matlabroot, string platform_str, string api, Language language, bool is_interleaved)
+		public string matlabroot
 		{
-			this.matlabroot = matlabroot;
-			if(platform_str.Equals(DataApiForm.PLATFORM_x64))
+			get {return _matlabroot;}
+			set
 			{
-				this.platform = Platform.x64;
+				if(value == null)
+				{
+					value = "";
+				}
+				if(!value.EndsWith(@"\"))
+				{
+					value += @"\";
+				}
+				_matlabroot = value;
 			}
-			else
-			{
-				this.platform = Platform.x86;
-			}
-			this.language = language;
-			this.api = api;
-			this.is_interleaved = is_interleaved;
 		}
+		private Language _language;
 
-		public static bool CheckMatlabExe(string matlabroot)
+		public Language language
 		{
-			return (File.Exists(matlabroot + @"\bin\matlab.exe"));
+			get {return _language;}
 		}
+		private API _api;
 
-		public string GetMatlabRoot()
+		public API api
 		{
-			return this.matlabroot + @"\";
+			get {return _api;}
 		}
 
-		public string GetVersionName()
+		public Platform platform{get; set;} = Platform.X64;
+		public ArrayDimensions array_dims{get; set;} = ArrayDimensions.LARGE;
+		public ComplexStorage complex_storage{get; set;} = ComplexStorage.SEPARATED;
+		public GraphicsClass graphics_class{get; set;} = GraphicsClass.OBJECT;
+
+		public ConfigurationImporter imports;
+
+		public MatlabConfiguration(Language language, API api)
+		{
+			this._language = language;
+			this._api = api;
+		}
+
+		public void GenerateConfiguration()
+		{
+			this.imports.Release = GetRelease();
+			this.imports.MatlabRoot = _matlabroot;
+			this.imports.APIFullName = GenerateAPIFullName();
+			this.imports.PlatformName = GeneratePlatformString();
+			this.imports.IncludePath = GenerateIncludePath();
+			this.imports.LibraryPath = GenerateLibraryPath();
+			this.imports.Dependencies = GenerateDependencies();
+			this.imports.PreprocessorDefinitions = GeneratePreprocessorDefinitions();
+			this.imports.AdditionalLinkerOptions = GenerateAdditionalLinkerOptions();
+			this.imports.MEXExtension = GenerateMEXExtension();
+			this.imports.TargetMachine = GenerateTargetMachine();
+			this.imports.CompileAs = GenerateCompileAs();
+			this.imports.ProjectExtension = GenerateProjectExtension();
+			this.imports.FileExtension = GenerateFileExtension();
+			this.imports.APIShortName = GenerateAPIShortName();
+		}
+
+		public string GetRelease()
 		{
 			// checks if version.txt exists and fetches its contents
-			string verfile_name = matlabroot + @"\bin\util\mex\version.txt";
-			if(File.Exists(verfile_name))
+			if(this._matlabroot != null)
 			{
-				return File.ReadAllText(verfile_name);
+				string verfile_name = this._matlabroot + @"bin\util\mex\version.txt";
+				if(File.Exists(verfile_name))
+				{
+					return File.ReadAllText(verfile_name);
+				}
 			}
-			else
-			{
-				return null;
-			}
+			return "Unknown Release";
 		}
 
-		public string GetIncludePath()
+		public bool CheckMatlabExe()
 		{
-			return @"$(MatlabRoot)extern\include\;$(MatlabRoot)simulink\include\";
+			return (File.Exists(this._matlabroot + @"bin\matlab.exe"));
 		}
 
-		public string GetLibraryPath()
+		public string GenerateIncludePath()
 		{
-			if(this.platform.Equals(DataApiForm.PLATFORM_x64))
+			string path = @"$(MatlabRoot)extern\include\";
+			if(Directory.Exists(this._matlabroot + @"simulink\include\"))
+			{
+				path += @";$(MatlabRoot)simulink\include\";
+			}
+			return path;
+		}
+
+		public string GetFullIncludePath()
+		{
+			string path = _matlabroot + @"extern\include\";
+			if(Directory.Exists(_matlabroot + @"simulink\include\"))
+			{
+				path += ";" + this._matlabroot + @"simulink\include\";
+			}
+			return path;
+		}
+
+		public string GenerateLibraryPath()
+		{
+			if(this.platform == Platform.X64)
 			{
 				return @"$(MatlabRoot)extern\lib\win64\microsoft\";
 			}
@@ -69,10 +158,22 @@ namespace MatlabInputForm
 			}
 		}
 
-		public string GetDependencies()
+		public string GetLibraryFullPath()
+		{
+			if(this.platform == Platform.X64)
+			{
+				return this._matlabroot + @"extern\lib\win64\microsoft\";
+			}
+			else
+			{
+				return this._matlabroot + @"extern\lib\win32\microsoft\";
+			}
+		}
+
+		public string GenerateDependencies()
 		{
 			string depends = "libmx.lib;libmex.lib;libmat.lib";
-			if(this.language == Language.CPP)
+			if(this._language == Language.CPP)
 			{
 				depends += ";libMatlabDataArray.lib;libMatlabEngine.lib";
 			}
@@ -81,17 +182,17 @@ namespace MatlabInputForm
 
 		public string GetVersionSource()
 		{
-			string versource_name = matlabroot;
-			switch(this.language)
+			string versource_name = _matlabroot;
+			switch(this._language)
 			{
 				case Language.C:
-					versource_name += @"\extern\version\c_mexapi_version.c";
+					versource_name += @"extern\version\c_mexapi_version.c";
 					break;
 				case Language.CPP:
-					versource_name += @"\extern\version\cpp_mexapi_version.cpp";
+					versource_name += @"extern\version\cpp_mexapi_version.cpp";
 					break;
 				case Language.FORTRAN:
-					versource_name += @"\extern\version\fortran_mexapi_version.F";
+					versource_name += @"extern\version\fortran_mexapi_version.F";
 					break;
 			}
 			return File.Exists(versource_name) ? versource_name : null;
@@ -103,7 +204,7 @@ namespace MatlabInputForm
 			return (GetVersionSource() != null) ? "true" : "false";
 		}
 
-		public string GetAdditionalLinkerOptions()
+		public string GenerateAdditionalLinkerOptions()
 		{
 			string opts = @"/EXPORT:mexFunction ";
 			if(GetVersionSource() != null)
@@ -114,33 +215,57 @@ namespace MatlabInputForm
 			return opts;
 		}
 
-		public string GetPreprocessorDefinitions()
+		public string GeneratePreprocessorDefinitions()
 		{
-			if(this.is_interleaved)
+			string defs = @"USE_MEX_CMD;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;_SECURE_SCL=0;MATLAB_MEX_FILE";
+
+			if(api == API.DATA)
 			{
-				return
-					@"MX_COMPAT_64;MATLAB_DEFAULT_RELEASE=R2018a;USE_MEX_CMD;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;_SECURE_SCL=0;MATLAB_MEX_FILE";
+				return defs;
 			}
 			else
 			{
-				return @"MATLAB_DEFAULT_RELEASE=R2017b;USE_MEX_CMD;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;_SECURE_SCL=0;MATLAB_MEX_FILE";
+				if(this.array_dims == ArrayDimensions.COMPATIBLE)
+				{
+					defs += "MX_COMPAT_32";
+				}
+				else
+				{
+					defs += "MX_COMPAT_64";
+				}
+
+				if(this.complex_storage == ComplexStorage.INTERLEAVED)
+				{
+					defs += "MATLAB_MEXCMD_RELEASE=R2018a";
+				}
+				else
+				{
+					defs += "MATLAB_MEXCMD_RELEASE=R2017b";
+				}
+
+				if(this.graphics_class == GraphicsClass.DOUBLE)
+				{
+					defs += "MEX_DOUBLE_HANDLE";
+				}
+
+				return defs;
 			}
 		}
 
-		public string GetPlatformString()
+		public string GeneratePlatformString()
 		{
-			return (this.platform == Platform.x64) ? "x64" : "Win32";
+			return (this.platform == Platform.X64) ? "x64" : "Win32";
 		}
 
-		public string GetMEXExtension()
+		public string GenerateMEXExtension()
 		{
-			return (this.platform == Platform.x64) ? ".mexw64" : ".mexw32";
+			return (this.platform == Platform.X64) ? ".mexw64" : ".mexw32";
 		}
 
 
-		public string GetFileExtension()
+		public string GenerateFileExtension()
 		{
-			switch(language)
+			switch(_language)
 			{
 				case Language.C:
 				{
@@ -159,16 +284,16 @@ namespace MatlabInputForm
 			return null;
 		}
 
-		public string GetFullAPIName()
+		public string GenerateAPIFullName()
 		{
-			if(this.api.Equals(DataApiForm.DATA_API))
+			if(this.api == API.DATA)
 			{
 				return "C++ Data API";
 			}
 			else
 			{
 				string full_api_name = "";
-				switch(language)
+				switch(_language)
 				{
 					case Language.C:
 					{
@@ -187,51 +312,27 @@ namespace MatlabInputForm
 						break;
 					}
 				}
-				return full_api_name + (this.is_interleaved ? " - Interleaved Complex" : " - Separated Complex");
+
+				full_api_name += (this.complex_storage == ComplexStorage.INTERLEAVED)
+					? " - Interleaved Complex"
+					: " - Separated Complex";
+				full_api_name += (this.array_dims == ArrayDimensions.COMPATIBLE)
+					? ", Compatible Array Dimensions"
+					: "";
+				full_api_name += (this.graphics_class == GraphicsClass.DOUBLE)? ", 'double' Graphics Class" : "";
+				return full_api_name;
 			}
 		}
 
-		public string GetSafeAPIName()
+		public string GenerateAPIShortName()
 		{
-			if(this.api.Equals(DataApiForm.DATA_API))
+			if(this.api == API.DATA)
 			{
 				return "CPP_DATA";
 			}
 			else
 			{
-				string full_api_name = "";
-				switch(language)
-				{
-					case Language.C:
-					{
-
-						full_api_name += "C_MATRIX";
-						break;
-					}
-					case Language.CPP:
-					{
-						full_api_name += "CPP_MATRIX";
-						break;
-					}
-					case Language.FORTRAN:
-					{
-						full_api_name += "F_MATRIX";
-						break;
-					}
-				}
-				return full_api_name + (this.is_interleaved ? "_INTERLEAVED" : "_SEPARATED");
-			}
-		}
-
-		public string GetAPIShortName()
-		{
-			if(this.api.Equals(DataApiForm.DATA_API))
-			{
-				return "CPP_DATA";
-			}
-			else
-			{
-				switch(language)
+				switch(_language)
 				{
 					case Language.C:
 					{
@@ -247,14 +348,13 @@ namespace MatlabInputForm
 						return "F_MATRIX";
 					}
 				}
+				return "";
 			}
-
-			return "";
 		}
 
-		public string GetProjectFilenameExtension()
+		public string GenerateProjectExtension()
 		{
-			switch(language)
+			switch(_language)
 			{
 				case Language.C:
 				case Language.CPP:
@@ -270,9 +370,9 @@ namespace MatlabInputForm
 			return null;
 		}
 
-		public string GetCompileAs()
+		public string GenerateCompileAs()
 		{
-			switch(language)
+			switch(_language)
 			{
 				case Language.C:
 				{
@@ -291,12 +391,33 @@ namespace MatlabInputForm
 			return null;
 		}
 
-		public string GetTargetMachine()
+		public string GenerateTargetMachine()
 		{
-			return (this.platform == Platform.x64) ? "MachineX64" : "MachineX86";
+			return (this.platform == Platform.X64) ? "MachineX64" : "MachineX86";
+		}
+
+		public class ConfigurationImporter
+		{
+			public string Release = "";
+			public string MatlabRoot = "";
+			public string APIFullName = "";
+			public string PlatformName = "";
+			public string IncludePath = "";
+			public string PreprocessorDefinitions = "";
+			public string LibraryPath = "";
+			public string Dependencies = "";
+			public string AdditionalLinkerOptions = "";
+			public string MEXExtension = "";
+			public string TargetMachine = "";
+			public string CompileAs = "";
+			public string ProjectExtension = "";
+			public string FileExtension = "";
+			public string APIShortName = "";
 		}
 
 	}
+
+	
 
 	public class MatlabNotFoundException : Exception
 	{
