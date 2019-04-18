@@ -1,14 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Security.Permissions;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Win32;
 
@@ -17,41 +8,18 @@ namespace MatlabInputForm
 
 	public partial class MatrixAPIForm : Form
 	{
-		
+		private MatlabConfiguration ml_config;
 		private Language language;
 		
-		public static string PLATFORM_x64 = "64-bit";
-		public static string PLATFORM_x86 = "32-bit";
 		private static string BROWSE_STRING = "Browse...";
-		public static string MATRIX_API = "Matrix API";
-		public static string DATA_API = "Data API";
 		private string[] matlab_registry_x64;
 		private string[] matlab_registry_x86;
 
-		public MatrixAPIForm(Language language)
+		public MatrixAPIForm(MatlabConfiguration ml_config)
 		{
+			this.ml_config = ml_config;
 			InitializeComponent();
-
-			this.language = language;
-
-			InitAPISelect(language);
-			InitPlatformSelect();
 			InitFolderSelect();
-			InitBrowseButton();
-			InitAbortButton();
-			InitOKButton();
-			InitFolderBrowser();
-			InitInterleavedCheck();
-		}
-
-		private void InitAPISelect(Language language)
-		{
-			
-		}
-
-		private void InitPlatformSelect()
-		{
-
 		}
 
 		private void InitFolderSelect()
@@ -67,61 +35,11 @@ namespace MatlabInputForm
 			{
 				this.FolderSelect.SelectedIndex = 0;
 			}
-			this.FolderSelect.SelectionChangeCommitted += new System.EventHandler(this.FolderSelect_SelectionChangeCommitted);
-		}
-
-		private void InitBrowseButton()
-		{
-			this.BrowseButton.Click += new System.EventHandler(this.BrowseButton_Click);
-		}
-
-		private void InitAbortButton()
-		{
-			this.AbortButton.Click += new System.EventHandler(this.AbortButton_Click);
-		}
-
-		private void InitOKButton()
-		{
-			this.OKButton.Click += new System.EventHandler(this.OKButton_Click);
-		}
-
-		private void InitFolderBrowser()
-		{
-			// nothing
-		}
-
-		private void InitInterleavedCheck()
-		{
-			// nothing
-		}
-
-		private void APISelect_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			ComboBox cbox = (ComboBox)sender;
-			if(!cbox.SelectedItem.Equals(MATRIX_API))
-			{
-			}
-			else
-			{
-			}
-		}
-
-		private void PlatformSelect_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			ComboBox cbox = (ComboBox)sender;
-			if(cbox.SelectedItem.Equals(PLATFORM_x64))
-			{
-				SetFolderSelectItems(matlab_registry_x64);
-			}
-			else
-			{
-				SetFolderSelectItems(matlab_registry_x86);
-			}
 		}
 
 		private void FolderSelect_SelectionChangeCommitted(object sender, EventArgs e)
 		{
-			ComboBox cbox = (ComboBox)sender;
+			ComboBox cbox = sender as ComboBox;
 			if(cbox.SelectedItem.Equals(BROWSE_STRING))
 			{
 				cbox.SelectedIndex = -1;
@@ -166,14 +84,20 @@ namespace MatlabInputForm
 			{
 				matlabroot = this.FolderSelect.Text;
 			}
-			if(!MatlabConfiguration.CheckMatlabExe(matlabroot))
+			ml_config.matlabroot = matlabroot;
+			ml_config.platform = this.PlatformRadio_32.Checked? Platform.X86 : Platform.X64;
+			ml_config.array_dims = this.ArrayDimsRadio_Compatible.Checked
+				? ArrayDimensions.COMPATIBLE
+				: ArrayDimensions.LARGE;
+			ml_config.complex_storage =
+				this.ComplexRadio_Interleaved.Checked? ComplexStorage.INTERLEAVED : ComplexStorage.SEPARATED;
+			ml_config.graphics_class =
+				this.GraphicsRadio_double.Checked? GraphicsClass.DOUBLE : GraphicsClass.OBJECT;
+			if(!ml_config.CheckMatlabExe())
 			{
 				MessageBox.Show(@"Could not locate matlab.exe from MATLAB root """ + matlabroot + @""".
 Example path: C:\Program Files\MATLAB\R2019a", "Invalid MATLAB Root Directory", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return;
 			}
-			
-			this.Close();
 		}
 
 		private string[] GetMatlabRootFromRegistry_x64()
@@ -251,27 +175,88 @@ Example path: C:\Program Files\MATLAB\R2019a", "Invalid MATLAB Root Directory", 
 			}
 		}
 
-		public static MatlabConfiguration config{get; set;}
-
-		private void radioButton2_CheckedChanged(object sender, EventArgs e)
+		private void PlatformRadio_64_CheckedChanged(object sender, EventArgs e)
 		{
-
+			RadioButton r = sender as RadioButton;
+			if(r.Checked)
+			{
+				SetFolderSelectItems(matlab_registry_x64);
+				if(this.FolderSelect.SelectedIndex != -1)
+				{
+					this.FolderSelect.SelectedIndex = 0;
+				}
+			}
 		}
 
-		private void groupBox1_Enter(object sender, EventArgs e)
+		private void PlatformRadio_32_CheckedChanged(object sender, EventArgs e)
 		{
-
+			RadioButton r = sender as RadioButton;
+			if(r.Checked)
+			{
+				SetFolderSelectItems(matlab_registry_x86);
+				if(this.FolderSelect.SelectedIndex != -1)
+				{
+					this.FolderSelect.SelectedIndex = 0;
+				}
+			}
 		}
 
-		private void groupBox2_Enter(object sender, EventArgs e)
+		/*
+		private void ArrayDimsRadio_Large_CheckedChanged(object sender, EventArgs e)
 		{
-
+			RadioButton r = sender as RadioButton;
+			if(r.Checked)
+			{
+				this.ml_config.array_dims = ArrayDimensions.LARGE;
+			}
 		}
 
-		private void radioButton1_CheckedChanged(object sender, EventArgs e)
+		private void ArrayDimsRadio_Compatible_CheckedChanged(object sender, EventArgs e)
 		{
-
+			RadioButton r = sender as RadioButton;
+			if(r.Checked)
+			{
+				this.ml_config.array_dims = ArrayDimensions.COMPATIBLE;
+			}
 		}
+
+		private void ComplexRadio_Separated_CheckedChanged(object sender, EventArgs e)
+		{
+			RadioButton r = sender as RadioButton;
+			if(r.Checked)
+			{
+				this.ml_config.complex_storage = ComplexStorage.SEPARATED;
+			}
+		}
+
+		private void ComplexRadio_Interleaved_CheckedChanged(object sender, EventArgs e)
+		{
+			RadioButton r = sender as RadioButton;
+			if(r.Checked)
+			{
+				this.ml_config.complex_storage = ComplexStorage.INTERLEAVED;
+			}
+		}
+
+		private void GraphicsRadio_object_CheckedChanged(object sender, EventArgs e)
+		{
+			RadioButton r = sender as RadioButton;
+			if(r.Checked)
+			{
+				this.ml_config.graphics_class = GraphicsClass.OBJECT;
+			}
+		}
+
+		private void GraphicsRadio_double_CheckedChanged(object sender, EventArgs e)
+		{
+			RadioButton r = sender as RadioButton;
+			if(r.Checked)
+			{
+				this.ml_config.graphics_class = GraphicsClass.DOUBLE;
+			}
+		}
+		*/
+
 	}
 
 }
