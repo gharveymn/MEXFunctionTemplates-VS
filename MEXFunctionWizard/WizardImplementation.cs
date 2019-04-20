@@ -4,12 +4,12 @@ using Microsoft.VisualStudio.TemplateWizard;
 using System.Windows.Forms;
 using EnvDTE;
 using MatlabInputForm;
+using Language = MatlabInputForm.Language;
 
 namespace MEXFunctionWizard
 {
 	public class WizardImplementation : IWizard
 	{
-		private DataApiForm inputForm;
 		//private string test;
 
 		// This method is called before opening any item that
@@ -49,36 +49,45 @@ namespace MEXFunctionWizard
 				string template_source_path = customParams[0].ToString();
 				string template_source_folder = Path.GetDirectoryName(template_source_path);
 				string template_source_file = Path.GetFileNameWithoutExtension(template_source_path);
-
-				MatlabInputForm.Language language;
+				
+				Language language;
+				API api;
 				if(template_source_file.EndsWith("C"))
 				{
-					language = MatlabInputForm.Language.C;
+					language = Language.C;
+					api = API.MATRIX;
 				}
 				else if(template_source_file.EndsWith("CPP"))
 				{
-					language = MatlabInputForm.Language.CPP;
+					language = Language.CPP;
+					api = API.MATRIX;
 				}
 				else if(template_source_file.EndsWith("F"))
 				{
-					language = MatlabInputForm.Language.FORTRAN;
+					language = Language.FORTRAN;
+					api = API.MATRIX;
+				}
+				else if(template_source_file.EndsWith("DATA"))
+				{
+					language = Language.CPP;
+					api = API.DATA;
 				}
 				else
 				{
 					throw new System.Exception();
 				}
 
-				// Display a form to the user. The form collects
-				// input for the custom message.
-				using(inputForm = new DataApiForm(language))
+				using(APIForm input_form = APIForm.GetAPIForm(language, api))
 				{
-					if(inputForm.ShowDialog() != DialogResult.OK)
+					// Display a form to the user. The form collects
+					// input for the custom message.
+					if(input_form.ShowDialog() != DialogResult.OK)
 					{
 						// abort
 						throw new WizardCancelledException();
 					}
 
-					MatlabConfiguration ml_config = DataApiForm.config;
+					MatlabConfiguration ml_config = APIForm.configuration;
 
 					// Add custom parameters.
 					replacementsDictionary.Add("$TARGET_MACHINE$", ml_config.imports.TargetMachine);
@@ -96,8 +105,6 @@ namespace MEXFunctionWizard
 					replacementsDictionary.Add("$MATLAB_PREPROCESSOR_DEFINITIONS$",
 						ml_config.imports.PreprocessorDefinitions);
 					replacementsDictionary.Add("$MEXEXT$", ml_config.imports.MEXExtension);
-
-
 				}
 			}
 			catch (System.Exception ex)

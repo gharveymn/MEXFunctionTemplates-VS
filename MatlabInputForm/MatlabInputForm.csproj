@@ -70,6 +70,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="APIForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ImportReviewForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,11 +86,11 @@
       <DependentUpon>MatrixAPIForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MatlabConfiguration.cs" />
-    <Compile Include="DataApiForm.cs">
+    <Compile Include="DataAPIForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DataApiForm.Designer.cs">
-      <DependentUpon>DataApiForm.cs</DependentUpon>
+    <Compile Include="DataAPIForm.Designer.cs">
+      <DependentUpon>DataAPIForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -107,8 +110,8 @@
     <EmbeddedResource Include="MatrixAPIForm.resx">
       <DependentUpon>MatrixAPIForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DataApiForm.resx">
-      <DependentUpon>DataApiForm.cs</DependentUpon>
+    <EmbeddedResource Include="DataAPIForm.resx">
+      <DependentUpon>DataAPIForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="genekey.snk" />
     <None Include="Properties\Settings.settings">
@@ -135,6 +138,27 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\failed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\failed1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-mark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\matlab_logo_w1S_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yes-check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\no-mark.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
