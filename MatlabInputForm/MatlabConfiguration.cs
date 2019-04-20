@@ -80,7 +80,7 @@ namespace MatlabInputForm
 		public ComplexStorage complex_storage{get; set;} = ComplexStorage.SEPARATED;
 		public GraphicsClass graphics_class{get; set;} = GraphicsClass.OBJECT;
 
-		public ConfigurationImporter imports;
+		public ConfigurationImporter imports = new ConfigurationImporter();
 
 		public MatlabConfiguration(Language language, API api)
 		{
@@ -227,25 +227,25 @@ namespace MatlabInputForm
 			{
 				if(this.array_dims == ArrayDimensions.COMPATIBLE)
 				{
-					defs += "MX_COMPAT_32";
+					defs = "MX_COMPAT_32;" + defs;
 				}
 				else
 				{
-					defs += "MX_COMPAT_64";
+					defs = "MX_COMPAT_64;" + defs;
 				}
 
 				if(this.complex_storage == ComplexStorage.INTERLEAVED)
 				{
-					defs += "MATLAB_MEXCMD_RELEASE=R2018a";
+					defs = "MATLAB_MEXCMD_RELEASE=R2018a;" + defs;
 				}
 				else
 				{
-					defs += "MATLAB_MEXCMD_RELEASE=R2017b";
+					defs = "MATLAB_MEXCMD_RELEASE=R2017b;" + defs;
 				}
 
 				if(this.graphics_class == GraphicsClass.DOUBLE)
 				{
-					defs += "MEX_DOUBLE_HANDLE";
+					defs = "MEX_DOUBLE_HANDLE;" + defs;
 				}
 
 				return defs;

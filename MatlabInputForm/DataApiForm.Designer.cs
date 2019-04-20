@@ -1,6 +1,6 @@
 ﻿namespace MatlabInputForm
 {
-	partial class DataApiForm
+	partial class DataAPIForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -29,7 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataApiForm));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataAPIForm));
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.MLLabel = new System.Windows.Forms.Label();
 			this.FolderSelect = new System.Windows.Forms.ComboBox();
@@ -46,13 +46,14 @@
 			this.tableLayoutPanel1.ColumnCount = 3;
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.53535F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.46465F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 82F));
 			this.tableLayoutPanel1.Controls.Add(this.MLLabel, 0, 0);
 			this.tableLayoutPanel1.Controls.Add(this.FolderSelect, 1, 0);
 			this.tableLayoutPanel1.Controls.Add(this.BrowseButton, 2, 0);
 			this.tableLayoutPanel1.Controls.Add(this.AbortButton, 2, 1);
 			this.tableLayoutPanel1.Controls.Add(this.OKButton, 1, 1);
 			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 2;
@@ -64,10 +65,10 @@
 			// MLLabel
 			// 
 			this.MLLabel.Dock = System.Windows.Forms.DockStyle.Right;
-			this.MLLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.MLLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.MLLabel.Location = new System.Drawing.Point(3, 0);
 			this.MLLabel.Name = "MLLabel";
-			this.MLLabel.Size = new System.Drawing.Size(107, 29);
+			this.MLLabel.Size = new System.Drawing.Size(106, 29);
 			this.MLLabel.TabIndex = 2;
 			this.MLLabel.Text = "MATLAB Location:";
 			this.MLLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -76,20 +77,20 @@
 			// 
 			this.FolderSelect.AllowDrop = true;
 			this.FolderSelect.Dock = System.Windows.Forms.DockStyle.Top;
-			this.FolderSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.FolderSelect.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.FolderSelect.FormattingEnabled = true;
-			this.FolderSelect.Location = new System.Drawing.Point(116, 3);
+			this.FolderSelect.Location = new System.Drawing.Point(115, 3);
 			this.FolderSelect.Name = "FolderSelect";
-			this.FolderSelect.Size = new System.Drawing.Size(277, 21);
+			this.FolderSelect.Size = new System.Drawing.Size(276, 21);
 			this.FolderSelect.TabIndex = 3;
 			this.FolderSelect.SelectionChangeCommitted += new System.EventHandler(this.FolderSelect_SelectionChangeCommitted);
 			// 
 			// BrowseButton
 			// 
 			this.BrowseButton.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.BrowseButton.Location = new System.Drawing.Point(399, 3);
+			this.BrowseButton.Location = new System.Drawing.Point(397, 3);
 			this.BrowseButton.Name = "BrowseButton";
-			this.BrowseButton.Size = new System.Drawing.Size(75, 23);
+			this.BrowseButton.Size = new System.Drawing.Size(77, 23);
 			this.BrowseButton.TabIndex = 4;
 			this.BrowseButton.Text = "Browse";
 			this.BrowseButton.UseVisualStyleBackColor = true;
@@ -99,9 +100,9 @@
 			// 
 			this.AbortButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.AbortButton.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.AbortButton.Location = new System.Drawing.Point(399, 32);
+			this.AbortButton.Location = new System.Drawing.Point(397, 32);
 			this.AbortButton.Name = "AbortButton";
-			this.AbortButton.Size = new System.Drawing.Size(75, 23);
+			this.AbortButton.Size = new System.Drawing.Size(77, 23);
 			this.AbortButton.TabIndex = 5;
 			this.AbortButton.Text = "Cancel";
 			this.AbortButton.UseVisualStyleBackColor = true;
@@ -111,7 +112,7 @@
 			// 
 			this.OKButton.DialogResult = System.Windows.Forms.DialogResult.OK;
 			this.OKButton.Dock = System.Windows.Forms.DockStyle.Right;
-			this.OKButton.Location = new System.Drawing.Point(318, 32);
+			this.OKButton.Location = new System.Drawing.Point(316, 32);
 			this.OKButton.Name = "OKButton";
 			this.OKButton.Size = new System.Drawing.Size(75, 23);
 			this.OKButton.TabIndex = 6;
@@ -125,15 +126,17 @@
     "atlabroot\' at the MATLAB prompt.";
 			this.FolderBrowser.ShowNewFolderButton = false;
 			// 
-			// DataApiForm
+			// DataAPIForm
 			// 
+			this.AcceptButton = this.OKButton;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.CancelButton = this.AbortButton;
 			this.ClientSize = new System.Drawing.Size(477, 58);
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.Name = "DataApiForm";
+			this.Icon = ((System.Drawing.Icon)(global::MatlabInputForm.Properties.Resources.matlab_logo));
+			this.Name = "DataAPIForm";
 			this.Text = "MEX Function Wizard - Data API";
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.ResumeLayout(false);
