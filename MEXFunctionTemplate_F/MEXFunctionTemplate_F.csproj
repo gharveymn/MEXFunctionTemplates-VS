@@ -10,6 +10,9 @@
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>genekey.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>matlab_logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -67,6 +70,7 @@
     <None Include="genekey.snk" />
     <None Include="matlab.targets" />
     <None Include="mexfunction" />
+    <Content Include="matlab_logo.ico" />
     <Content Include="ProjectTemplate.vfproj" />
     <None Include="MEXFunctionTemplate_F.ico" />
   </ItemGroup>

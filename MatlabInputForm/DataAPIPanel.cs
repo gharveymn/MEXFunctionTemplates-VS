@@ -1,45 +1,33 @@
-﻿namespace MatlabInputForm
-{
-	partial class DataAPIForm
-	{
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		private System.ComponentModel.IContainer components = null;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-		protected override void Dispose(bool disposing)
+namespace MatlabInputForm
+{
+	public class DataAPIPanel : APIPanel, IPanel
+	{
+
+		private string[] matlab_registry_x64;
+
+		public DataAPIPanel(APIForm parent, MatlabConfiguration ml_config) : base(parent, ml_config)
 		{
-			if (disposing && (components != null))
-			{
-				components.Dispose();
-			}
-			base.Dispose(disposing);
+			InitializeComponent();
+			InitFolderSelect();
 		}
 
-		#region Windows Form Designer generated code
-
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataAPIForm));
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.MLLabel = new System.Windows.Forms.Label();
 			this.FolderSelect = new System.Windows.Forms.ComboBox();
 			this.BrowseButton = new System.Windows.Forms.Button();
 			this.AbortButton = new System.Windows.Forms.Button();
-			this.OKButton = new System.Windows.Forms.Button();
+			this.NextButton = new System.Windows.Forms.Button();
 			this.FolderBrowser = new System.Windows.Forms.FolderBrowserDialog();
-			this.InterleavedTip = new System.Windows.Forms.ToolTip(this.components);
-			this.tableLayoutPanel1.SuspendLayout();
-			this.SuspendLayout();
+			this.InterleavedTip = new System.Windows.Forms.ToolTip();
 			// 
 			// tableLayoutPanel1
 			// 
@@ -51,7 +39,7 @@
 			this.tableLayoutPanel1.Controls.Add(this.FolderSelect, 1, 0);
 			this.tableLayoutPanel1.Controls.Add(this.BrowseButton, 2, 0);
 			this.tableLayoutPanel1.Controls.Add(this.AbortButton, 2, 1);
-			this.tableLayoutPanel1.Controls.Add(this.OKButton, 1, 1);
+			this.tableLayoutPanel1.Controls.Add(this.NextButton, 1, 1);
 			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -108,50 +96,106 @@
 			this.AbortButton.UseVisualStyleBackColor = true;
 			this.AbortButton.Click += new System.EventHandler(this.AbortButton_Click);
 			// 
-			// OKButton
+			// NextButton
 			// 
-			this.OKButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.OKButton.Dock = System.Windows.Forms.DockStyle.Right;
-			this.OKButton.Location = new System.Drawing.Point(316, 32);
-			this.OKButton.Name = "OKButton";
-			this.OKButton.Size = new System.Drawing.Size(75, 23);
-			this.OKButton.TabIndex = 6;
-			this.OKButton.Text = "OK";
-			this.OKButton.UseVisualStyleBackColor = true;
-			this.OKButton.Click += new System.EventHandler(this.NextButton_Click);
+			this.NextButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.NextButton.Dock = System.Windows.Forms.DockStyle.Right;
+			this.NextButton.Location = new System.Drawing.Point(316, 32);
+			this.NextButton.Name = "NextButton";
+			this.NextButton.Size = new System.Drawing.Size(75, 23);
+			this.NextButton.TabIndex = 6;
+			this.NextButton.Text = "OK";
+			this.NextButton.UseVisualStyleBackColor = true;
+			this.NextButton.Click += new System.EventHandler(this.NextButton_Click);
 			// 
 			// FolderBrowser
 			// 
 			this.FolderBrowser.Description = "Locate the folder where MATLAB is installed. You can also find this by running \'m" +
     "atlabroot\' at the MATLAB prompt.";
 			this.FolderBrowser.ShowNewFolderButton = false;
-			// 
-			// DataAPIForm
-			// 
-			this.AcceptButton = this.OKButton;
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.CancelButton = this.AbortButton;
-			this.ClientSize = new System.Drawing.Size(477, 58);
-			this.Controls.Add(this.tableLayoutPanel1);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-			this.Icon = ((System.Drawing.Icon)(global::MatlabInputForm.Properties.Resources.matlab_logo));
-			this.Name = "DataAPIForm";
-			this.Text = "MEX Function Wizard - Data API";
-			this.tableLayoutPanel1.ResumeLayout(false);
-			this.ResumeLayout(false);
-
 		}
 
-		#endregion
+		public new void ShowPanel()
+		{
+			this.tableLayoutPanel1.SuspendLayout();
+			parent.SuspendLayout();
+			parent.AcceptButton = this.NextButton;
+			parent.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			parent.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			parent.CancelButton = this.AbortButton;
+			parent.ClientSize = new System.Drawing.Size(477, 58);
+			parent.Controls.Add(this.tableLayoutPanel1);
+			parent.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+			parent.Icon = ((System.Drawing.Icon)(global::MatlabInputForm.Properties.Resources.matlab_logo));
+			parent.Name = "DataAPIForm";
+			parent.Text = "MEX Function Wizard - Data API";
+			this.tableLayoutPanel1.ResumeLayout(false);
+			parent.ResumeLayout(false);
+		}
+
+		public new void HidePanel()
+		{
+			parent.Controls.Remove(this.tableLayoutPanel1);
+		}
+
+		private void InitFolderSelect()
+		{
+			matlab_registry_x64 = GetMatlabRootFromRegistry(Platform.X64);
+			APIPanel.SetFolderSelectItems(this.FolderSelect, matlab_registry_x64);
+			if(matlab_registry_x64 == null)
+			{
+				this.FolderSelect.SelectedIndex = -1;
+			}
+			else
+			{
+				this.FolderSelect.SelectedIndex = 0;
+			}
+		}
+
+		private void FolderSelect_SelectionChangeCommitted(object sender, EventArgs e)
+		{
+			ComboBox cbox = sender as ComboBox;
+			if(cbox.SelectedItem.Equals(APIForm.BROWSE_STRING))
+			{
+				ShowBrowseDialog();
+			}
+		}
+
+		private void BrowseButton_Click(object sender, EventArgs e)
+		{
+			ShowBrowseDialog();
+		}
+
+		private void ShowBrowseDialog()
+		{
+			if(this.FolderBrowser.ShowDialog() == DialogResult.OK)
+			{
+				this.FolderSelect.SelectedIndex = -1;
+				this.FolderSelect.SelectedItem = this.FolderBrowser.SelectedPath;
+				this.FolderSelect.Text = this.FolderBrowser.SelectedPath;
+			}
+		}
+
+		private void AbortButton_Click(object sender, EventArgs e)
+		{
+			parent.Close();
+		}
+
+		private void NextButton_Click(object sender, EventArgs e)
+		{
+			ml_config.matlabroot = this.FolderSelect.Text;
+			ml_config.GenerateImports();
+			this.HidePanel();
+			parent.import_panel.ShowPanel();
+		}
+
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private System.Windows.Forms.Label MLLabel;
 		private System.Windows.Forms.ComboBox FolderSelect;
 		private System.Windows.Forms.Button AbortButton;
-		private System.Windows.Forms.Button OKButton;
+		private System.Windows.Forms.Button NextButton;
 		private System.Windows.Forms.FolderBrowserDialog FolderBrowser;
 		private System.Windows.Forms.Button BrowseButton;
 		private System.Windows.Forms.ToolTip InterleavedTip;
 	}
 }
-

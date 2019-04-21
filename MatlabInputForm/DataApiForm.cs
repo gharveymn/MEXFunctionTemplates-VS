@@ -56,15 +56,13 @@ namespace MatlabInputForm
 
 		private void AbortButton_Click(object sender, EventArgs e)
 		{
-			review_form.Close();
 			this.Close();
 		}
 
-		private void OKButton_Click(object sender, EventArgs e)
+		private void NextButton_Click(object sender, EventArgs e)
 		{
-			configuration.matlabroot = this.FolderSelect.Text;
-			configuration.GenerateImports();
-			review_form.Show();
+			ml_config.matlabroot = this.FolderSelect.Text;
+			ml_config.GenerateImports();
 			this.Hide();
 		}
 

@@ -77,7 +77,7 @@ namespace MEXFunctionWizard
 					throw new System.Exception();
 				}
 
-				using(APIForm input_form = APIForm.GetAPIForm(language, api))
+				using(APIForm input_form = new APIForm(language, api))
 				{
 					// Display a form to the user. The form collects
 					// input for the custom message.
@@ -87,7 +87,7 @@ namespace MEXFunctionWizard
 						throw new WizardCancelledException();
 					}
 
-					MatlabConfiguration ml_config = APIForm.configuration;
+					MatlabConfiguration ml_config = APIForm.ml_config;
 
 					// Add custom parameters.
 					replacementsDictionary.Add("$TARGET_MACHINE$", ml_config.imports.TargetMachine);
