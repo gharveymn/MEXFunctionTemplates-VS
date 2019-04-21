@@ -5,11 +5,13 @@ using Microsoft.Win32;
 
 namespace MatlabInputForm
 {
-	public class APIForm : Form
+	public partial class APIForm : Form
 	{
 		public static MatlabConfiguration configuration;
 		protected ImportReviewForm review_form;
 		protected static string BROWSE_STRING = "Browse...";
+
+		private Panel APIPanel;
 
 		public APIForm(Language language, API api)
 		{
@@ -18,7 +20,7 @@ namespace MatlabInputForm
 			this.FormClosing += new FormClosingEventHandler(this.APIForm_FormClosing);
 		}
 
-		protected  string[] GetMatlabRootFromRegistry(Platform platform)
+		protected string[] GetMatlabRootFromRegistry(Platform platform)
 		{
 			if(platform == Platform.X64)
 			{
@@ -107,6 +109,5 @@ namespace MatlabInputForm
 			}
 			review_form.Close();
 		}
-
 	}
 }
