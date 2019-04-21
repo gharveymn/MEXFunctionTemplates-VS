@@ -42,7 +42,7 @@
 		<TargetExt>$MEXEXT$</TargetExt>
 		<OutDir>$(SolutionDir)Bin\$(Platform)\$(Configuration)\</OutDir>
 		<EmbedManifest>false</EmbedManifest>
-		<IntDir>$(OutDir)Build\$(Platform)\$(Configuration)\</IntDir>
+		<IntDir>$(SolutionDir)Build\$(Platform)\$(Configuration)\</IntDir>
 		<MatlabRoot>$MATLABROOT$</MatlabRoot>
 		<Matlab_IncludePath>$MATLAB_INCLUDE_PATH$</Matlab_IncludePath>
 		<Matlab_LibraryPath>$MATLAB_LIBRARY_PATH$</Matlab_LibraryPath>
@@ -54,7 +54,7 @@
 		<TargetExt>$MEXEXT$</TargetExt>
 		<OutDir>$(SolutionDir)Bin\$(Platform)\$(Configuration)\</OutDir>
 		<EmbedManifest>false</EmbedManifest>
-		<IntDir>$(OutDir)Build\$(Platform)\$(Configuration)\</IntDir>
+		<IntDir>$(SolutionDir)Build\$(Platform)\$(Configuration)\</IntDir>
 		<MatlabRoot>$MATLABROOT$</MatlabRoot>
 		<Matlab_IncludePath>$MATLAB_INCLUDE_PATH$</Matlab_IncludePath>
 		<Matlab_LibraryPath>$MATLAB_LIBRARY_PATH$</Matlab_LibraryPath>

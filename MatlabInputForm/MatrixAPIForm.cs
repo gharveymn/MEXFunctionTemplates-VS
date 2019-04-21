@@ -58,23 +58,21 @@ namespace MatlabInputForm
 
 		private void AbortButton_Click(object sender, EventArgs e)
 		{
-			review_form.Close();
 			this.Close();
 		}
 
 		private void NextButton_Click(object sender, EventArgs e)
 		{
-			configuration.matlabroot = this.FolderSelect.Text;
-			configuration.platform = this.PlatformRadio_32.Checked? Platform.X86 : Platform.X64;
-			configuration.array_dims = this.ArrayDimsRadio_Compatible.Checked
+			ml_config.matlabroot = this.FolderSelect.Text;
+			ml_config.platform = this.PlatformRadio_32.Checked? Platform.X86 : Platform.X64;
+			ml_config.array_dims = this.ArrayDimsRadio_Compatible.Checked
 				? ArrayDimensions.COMPATIBLE
 				: ArrayDimensions.LARGE;
-			configuration.complex_storage =
+			ml_config.complex_storage =
 				this.ComplexRadio_Interleaved.Checked? ComplexStorage.INTERLEAVED : ComplexStorage.SEPARATED;
-			configuration.graphics_class =
+			ml_config.graphics_class =
 				this.GraphicsRadio_double.Checked? GraphicsClass.DOUBLE : GraphicsClass.OBJECT;
-			configuration.GenerateImports();
-			review_form.Show();
+			ml_config.GenerateImports();
 		}
 
 		private void SetFolderSelectItems(string[] items)

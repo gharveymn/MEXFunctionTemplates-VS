@@ -73,30 +73,13 @@
     <Compile Include="APIForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ImportReviewForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ImportReviewForm.Designer.cs">
-      <DependentUpon>ImportReviewForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MatrixAPIForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MatrixAPIForm.Designer.cs">
-      <DependentUpon>MatrixAPIForm.cs</DependentUpon>
-    </Compile>
+    <Compile Include="APIPanel.cs" />
+    <Compile Include="DataAPIPanel.cs" />
+    <Compile Include="ImportReviewPanel.cs" />
     <Compile Include="MatlabConfiguration.cs" />
-    <Compile Include="DataAPIForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DataAPIForm.Designer.cs">
-      <DependentUpon>DataAPIForm.cs</DependentUpon>
-    </Compile>
+    <Compile Include="MatrixAPIPanel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ImportReviewForm.resx">
-      <DependentUpon>ImportReviewForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -107,12 +90,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="MatrixAPIForm.resx">
-      <DependentUpon>MatrixAPIForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DataAPIForm.resx">
-      <DependentUpon>DataAPIForm.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="genekey.snk" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -14,10 +14,13 @@ namespace MatlabInputForm
 		[STAThread]
 		static void Main()
 		{
+			
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(APIForm.GetAPIForm(Language.CPP, API.MATRIX));
-			//Application.Run(new ImportReviewForm(configuration));
+			APIForm api_form = new APIForm(Language.CPP, API.MATRIX);
+			Application.Run(api_form);
+			MessageBox.Show("Exit was " + (api_form.DialogResult == DialogResult.OK? "OK" : "Cancel"));
+			//Application.Run(new ImportReviewForm(ml_config));
 		}
 	}
 }
