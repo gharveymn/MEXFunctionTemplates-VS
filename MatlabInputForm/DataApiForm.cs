@@ -63,15 +63,9 @@ namespace MatlabInputForm
 		private void OKButton_Click(object sender, EventArgs e)
 		{
 			configuration.matlabroot = this.FolderSelect.Text;
-			if(!configuration.CheckMatlabExe())
-			{
-				MessageBox.Show(@"Could not locate matlab.exe from MATLAB root """ + this.FolderSelect.Text + @""".
-Example path: C:\Program Files\MATLAB\R2019a", "Invalid MATLAB Root Directory", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return;
-			}
-			configuration.GenerateConfiguration();
-			this.Hide();
+			configuration.GenerateImports();
 			review_form.Show();
+			this.Hide();
 		}
 
 		private void SetFolderSelectItems(string[] items)

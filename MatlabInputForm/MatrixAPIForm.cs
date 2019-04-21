@@ -73,13 +73,7 @@ namespace MatlabInputForm
 				this.ComplexRadio_Interleaved.Checked? ComplexStorage.INTERLEAVED : ComplexStorage.SEPARATED;
 			configuration.graphics_class =
 				this.GraphicsRadio_double.Checked? GraphicsClass.DOUBLE : GraphicsClass.OBJECT;
-			if(!configuration.CheckMatlabExe())
-			{
-				MessageBox.Show(@"Could not locate matlab.exe from MATLAB root """ + this.FolderSelect.Text + @""".
-Example path: C:\Program Files\MATLAB\R2019a", "Invalid MATLAB Root Directory", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
-			configuration.GenerateConfiguration();
-			this.Hide();
+			configuration.GenerateImports();
 			review_form.Show();
 		}
 

@@ -98,7 +98,7 @@ namespace MEXFunctionWizard
 					replacementsDictionary.Add("$FILEEXT$", ml_config.imports.FileExtension);
 					replacementsDictionary.Add("$API_SHORT_NAME$", ml_config.imports.APIShortName);
 					replacementsDictionary.Add("$MATLABROOT$", ml_config.imports.MatlabRoot);
-					replacementsDictionary.Add("$PLATFORM$", ml_config.imports.PlatformName);
+					replacementsDictionary.Add("$PLATFORM$", ml_config.imports.Platform);
 					replacementsDictionary.Add("$MATLAB_INCLUDE_PATH$", ml_config.imports.IncludePath);
 					replacementsDictionary.Add("$MATLAB_LIBRARY_PATH$", ml_config.imports.LibraryPath);
 					replacementsDictionary.Add("$MATLAB_DEPENDS$", ml_config.imports.Dependencies);
