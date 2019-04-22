@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="MEXFunctionWizard.b07898e3-52e5-4a61-9790-06df0ff75826" Version="1.0" Language="en-US" Publisher="Gene Harvey" />
+        <Identity Id="MEXFunctionTemplates.b07898e3-52e5-4a61-9790-06df0ff75826" Version="1.0.0" Language="en-US" Publisher="Gene Harvey" />
         <DisplayName>MEX Function Templates</DisplayName>
-        <Description xml:space="preserve">A wizard for MEX function templates.</Description>
+        <Description xml:space="preserve">Provides templates for creating MEX functions.</Description>
+        <License>LICENSE</License>
         <Icon>matlab_logo.ico</Icon>
+        <PreviewImage>Matlab_Logo.png</PreviewImage>
+        <Tags>MEX, MATLAB, VSIX, Extensibility, VC, C++, C, Template</Tags>
     </Metadata>
     <Installation>
         <InstallationTarget Version="[12.0,17.0)" Id="Microsoft.VisualStudio.Community" />
