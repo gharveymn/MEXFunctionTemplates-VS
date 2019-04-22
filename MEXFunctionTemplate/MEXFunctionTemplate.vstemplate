@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+	<TemplateData>
+		<Name>MEX Function</Name>
+		<Description>Create a MEX Function</Description>
+		<Icon>matlab_logo.ico</Icon>
+		<ProjectType>VC</ProjectType>
+		<SortOrder>1000</SortOrder>
+		<TemplateID>666eac62-493a-4aeb-8347-0628d98cb980</TemplateID>
+		<CreateNewFolder>true</CreateNewFolder>
+		<DefaultName>MEXFunction</DefaultName>
+		<ProvideDefaultName>true</ProvideDefaultName>
+	</TemplateData>
+	<TemplateContent>
+		<Project File="ProjectTemplate.vcxproj" TargetFileName="$safeprojectname$.vcxproj" ReplaceParameters="true">
+			<ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$safeprojectname$$FILEEXT$">mexfunction</ProjectItem>
+			<ProjectItem>matlab.targets</ProjectItem>
+			<ProjectItem>matlab.xml</ProjectItem>
+		</Project>
+	</TemplateContent>
+	<WizardExtension>
+		<Assembly>MEXFunctionWizard, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=dd22504a0a65711c</Assembly>
+		<FullClassName>MEXFunctionWizard.WizardImplementation</FullClassName>
+	</WizardExtension>
+</VSTemplate>
