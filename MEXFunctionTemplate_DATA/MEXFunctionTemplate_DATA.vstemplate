@@ -1,19 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
 	<TemplateData>
-		<Name>MEX Function (Fortran)</Name>
-		<Description>Create a Fortran MEX Function</Description>
+		<Name>MEX Function (C++ Data API)</Name>
+		<Description>Create a MEX Function using the C++ Data API</Description>
 		<Icon>matlab_logo.ico</Icon>
-		<ProjectType>IntelFortran</ProjectType>
+		<ProjectType>VC</ProjectType>
 		<SortOrder>1000</SortOrder>
-		<TemplateID>51598a5d-f080-4a52-8907-0d87b26b024d</TemplateID>
+		<TemplateID>886f20a0-bea6-4d59-9fbf-c5486a55feb2</TemplateID>
 		<CreateNewFolder>true</CreateNewFolder>
 		<DefaultName>MEXFunction</DefaultName>
 		<ProvideDefaultName>true</ProvideDefaultName>
 	</TemplateData>
 	<TemplateContent>
-		<Project File="ProjectTemplate.vfproj" ReplaceParameters="true">
-			<ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$safeprojectname$.c">mexfunction</ProjectItem>
+		<Project File="ProjectTemplate.vcxproj" TargetFileName="$safeprojectname$.vcxproj" ReplaceParameters="true">
+			<ProjectItem ReplaceParameters="true" OpenInEditor="true" TargetFileName="$safeprojectname$$FILEEXT$">mexfunction.cpp</ProjectItem>
+			<ProjectItem>matlab.targets</ProjectItem>
+			<ProjectItem>matlab.xml</ProjectItem>
 		</Project>
 	</TemplateContent>
 	<WizardExtension>
@@ -21,3 +23,4 @@
 		<FullClassName>MEXFunctionWizard.WizardImplementation</FullClassName>
 	</WizardExtension>
 </VSTemplate>
+

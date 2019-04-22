@@ -17,10 +17,10 @@ namespace MatlabInputForm
 			
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			APIForm api_form = new APIForm(Language.CPP, API.MATRIX);
-			Application.Run(api_form);
-			MessageBox.Show("Exit was " + (api_form.DialogResult == DialogResult.OK? "OK" : "Cancel"));
-			//Application.Run(new ImportReviewForm(ml_config));
+			//APIForm api_form = new APIForm(Language.CPP, API.MATRIX);
+			//Application.Run(api_form);
+			//MessageBox.Show("Exit was " + (api_form.DialogResult == DialogResult.OK? "OK" : "Cancel"));
+			Application.Run(new MatrixAPIForm());
 		}
 	}
 }

@@ -61,6 +61,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.html" />
+    <Content Include="matlab_logo.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="stylesheet.css" />
   </ItemGroup>
   <ItemGroup>
@@ -91,6 +95,13 @@
     <ProjectReference Include="..\MEXFunctionTemplate_C\MEXFunctionTemplate_C.csproj">
       <Project>{280887D3-850C-4843-BBA2-AF60F55A343F}</Project>
       <Name>MEXFunctionTemplate_C</Name>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
+    <ProjectReference Include="..\MEXFunctionTemplate_DATA\MEXFunctionTemplate_DATA.csproj">
+      <Project>{F45B10C7-2E97-481C-932A-D505E06165E7}</Project>
+      <Name>MEXFunctionTemplate_DATA</Name>
       <VSIXSubPath>ProjectTemplates</VSIXSubPath>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>

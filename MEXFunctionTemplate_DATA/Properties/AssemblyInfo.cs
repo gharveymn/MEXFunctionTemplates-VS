@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("$projectname$")]
+[assembly: AssemblyTitle("MEXFunctionTemplate_DATA")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("$registeredorganization$")]
-[assembly: AssemblyProduct("$projectname$")]
-[assembly: AssemblyCopyright("Copyright © $registeredorganization$ $year$")]
+[assembly: AssemblyCompany("Gene Harvey")]
+[assembly: AssemblyProduct("MEXFunctionTemplate_DATA")]
+[assembly: AssemblyCopyright("Copyright © Gene Harvey 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("$guid1$")]
+[assembly: Guid("f45b10c7-2e97-481c-932a-d505e06165e7")]
 
 // Version information for an assembly consists of the following four values:
 //

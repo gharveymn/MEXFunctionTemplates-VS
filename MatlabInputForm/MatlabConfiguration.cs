@@ -70,18 +70,9 @@ namespace MatlabInputForm
 				_matlabroot = value;
 			}
 		}
-		private Language _language;
 
-		public Language language
-		{
-			get {return _language;}
-		}
-		private API _api;
-
-		public API api
-		{
-			get {return _api;}
-		}
+		public Language language;
+		public API api;
 
 		public Platform platform{get; set;} = Platform.X64;
 		public ArrayDimensions array_dims{get; set;} = ArrayDimensions.LARGE;
@@ -90,11 +81,9 @@ namespace MatlabInputForm
 
 		public ConfigurationImporter imports;
 
-		public MatlabConfiguration(Language language, API api)
+		public MatlabConfiguration()
 		{
-			this._language = language;
-			this._api = api;
-			this.imports = new ConfigurationImporter(this);
+			this.GenerateImports();
 		}
 
 		public void GenerateImports()
@@ -149,7 +138,7 @@ namespace MatlabInputForm
 		public string GenerateDependencies()
 		{
 			string depends = "libmx.lib;libmex.lib;libmat.lib";
-			if(this._language == Language.CPP)
+			if(this.language == Language.CPP)
 			{
 				if(File.Exists(GetLibraryFullPath() + "libMatlabDataArray.lib"))
 				{
@@ -166,7 +155,7 @@ namespace MatlabInputForm
 		public string GetVersionSource()
 		{
 			string versource_name = _matlabroot;
-			switch(this._language)
+			switch(this.language)
 			{
 				case Language.C:
 					versource_name += @"extern\version\c_mexapi_version.c";
@@ -248,7 +237,7 @@ namespace MatlabInputForm
 
 		public string GenerateFileExtension()
 		{
-			switch(_language)
+			switch(language)
 			{
 				case Language.C:
 				{
@@ -276,7 +265,7 @@ namespace MatlabInputForm
 			else
 			{
 				string full_api_name = "";
-				switch(_language)
+				switch(this.language)
 				{
 					case Language.C:
 					{
@@ -315,7 +304,7 @@ namespace MatlabInputForm
 			}
 			else
 			{
-				switch(_language)
+				switch(this.language)
 				{
 					case Language.C:
 					{
@@ -337,7 +326,7 @@ namespace MatlabInputForm
 
 		public string GenerateProjectExtension()
 		{
-			switch(_language)
+			switch(this.language)
 			{
 				case Language.C:
 				case Language.CPP:
@@ -355,7 +344,7 @@ namespace MatlabInputForm
 
 		public string GenerateCompileAs()
 		{
-			switch(_language)
+			switch(this.language)
 			{
 				case Language.C:
 				{

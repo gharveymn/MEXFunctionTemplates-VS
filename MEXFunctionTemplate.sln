@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEXFunctionTemplate_C", "ME
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEXFunctionTemplate_F", "MEXFunctionTemplate_F\MEXFunctionTemplate_F.csproj", "{E1E45033-32D7-4EBE-8A6B-19A29234EAFD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEXFunctionTemplate_DATA", "MEXFunctionTemplate_DATA\MEXFunctionTemplate_DATA.csproj", "{F45B10C7-2E97-481C-932A-D505E06165E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{E1E45033-32D7-4EBE-8A6B-19A29234EAFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1E45033-32D7-4EBE-8A6B-19A29234EAFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1E45033-32D7-4EBE-8A6B-19A29234EAFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F45B10C7-2E97-481C-932A-D505E06165E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F45B10C7-2E97-481C-932A-D505E06165E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F45B10C7-2E97-481C-932A-D505E06165E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F45B10C7-2E97-481C-932A-D505E06165E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
