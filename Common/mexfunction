@@ -1,7 +1,7 @@
 $if$ ($API_SHORT_NAME$ == C_MATRIX)#include "mex.h"
 
 void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[]) {
-    
+    mexPrintf("hello, world");
 }$endif$$if$ ($API_SHORT_NAME$ == CPP_MATRIX)#include "mex.h"
 
 void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[]) {
