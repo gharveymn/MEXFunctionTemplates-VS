@@ -15,10 +15,10 @@ namespace MatlabInputForm
 
 		public bool will_create = false;
 
-		public APIForm(Language language, API api)
+		public APIForm()
 		{
 			APIForm.ml_config = new MatlabConfiguration();
-			api_panel = APIPanel.GetAPIPanel(this, ml_config);
+			api_panel = new APIPanel(this, ml_config);
 			import_panel = new ImportReviewPanel(this, ml_config);
 			this.FormClosing += new FormClosingEventHandler(this.APIForm_FormClosing);
 			api_panel.ShowPanel();

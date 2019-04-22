@@ -85,6 +85,13 @@
       <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup%3bBuiltProjectOutputGroupDependencies%3bGetCopyToOutputDirectoryItems%3bSatelliteDllsProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
       <IncludeOutputGroupsInVSIXLocalOnly>DebugSymbolsProjectOutputGroup%3b</IncludeOutputGroupsInVSIXLocalOnly>
     </ProjectReference>
+    <ProjectReference Include="..\MEXFunctionTemplate\MEXFunctionTemplate.csproj">
+      <Project>{7B266E5B-87A5-422D-8B0D-2C46E516A861}</Project>
+      <Name>MEXFunctionTemplate</Name>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
     <ProjectReference Include="..\MEXFunctionTemplate_CPP\MEXFunctionTemplate_CPP.csproj">
       <Project>{5EC44FCA-E747-4BA4-B2C9-49AAFE365C5A}</Project>
       <Name>MEXFunctionTemplate_CPP</Name>

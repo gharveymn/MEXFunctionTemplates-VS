@@ -49,35 +49,8 @@ namespace MEXFunctionWizard
 				string template_source_path = customParams[0].ToString();
 				string template_source_folder = Path.GetDirectoryName(template_source_path);
 				string template_source_file = Path.GetFileNameWithoutExtension(template_source_path);
-				
-				Language language;
-				API api;
-				if(template_source_file.EndsWith("C"))
-				{
-					language = Language.C;
-					api = API.MATRIX;
-				}
-				else if(template_source_file.EndsWith("CPP"))
-				{
-					language = Language.CPP;
-					api = API.MATRIX;
-				}
-				else if(template_source_file.EndsWith("F"))
-				{
-					language = Language.FORTRAN;
-					api = API.MATRIX;
-				}
-				else if(template_source_file.EndsWith("DATA"))
-				{
-					language = Language.CPP;
-					api = API.DATA;
-				}
-				else
-				{
-					throw new System.Exception();
-				}
 
-				using(APIForm input_form = new APIForm(language, api))
+				using(APIForm input_form = new APIForm())
 				{
 					// Display a form to the user. The form collects
 					// input for the custom message.
