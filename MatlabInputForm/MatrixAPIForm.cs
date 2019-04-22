@@ -9,6 +9,7 @@ namespace MatlabInputForm
 	public partial class MatrixAPIForm : Form
 	{
 
+		private ImportReviewForm review_form;
 		public static MatlabConfiguration ml_config;
 		public static string BROWSE_STRING = "Browse...";
 
@@ -18,6 +19,7 @@ namespace MatlabInputForm
 		public MatrixAPIForm()
 		{
 			ml_config = new MatlabConfiguration();
+			review_form = new ImportReviewForm(this, ml_config);
 			InitializeComponent();
 			InitFolderSelect();
 		}
@@ -26,7 +28,7 @@ namespace MatlabInputForm
 		{
 			matlab_registry_x64 = GetMatlabRootFromRegistry(Platform.X64);
 			matlab_registry_x86 = GetMatlabRootFromRegistry(Platform.X86);
-			SetFolderSelectItems(matlab_registry_x64);
+			SetFolderSelectItems(this.FolderSelect, matlab_registry_x64);
 			if(matlab_registry_x64 == null)
 			{
 				this.FolderSelect.SelectedIndex = -1;
@@ -63,6 +65,7 @@ namespace MatlabInputForm
 
 		private void AbortButton_Click(object sender, EventArgs e)
 		{
+			review_form.Close();
 			this.Close();
 		}
 
@@ -80,57 +83,23 @@ namespace MatlabInputForm
 			ml_config.graphics_class =
 				this.GraphicsRadio_double.Checked? GraphicsClass.DOUBLE : GraphicsClass.OBJECT;
 			ml_config.GenerateImports();
+			this.Hide();
+			review_form.Show();
 		}
 
-		private void SetFolderSelectItems(string[] items)
+		protected static void SetFolderSelectItems(ComboBox folder_select, string[] items)
 		{
-			this.FolderSelect.Items.Clear();
+			folder_select.Items.Clear();
 			if(items != null)
 			{
-				this.FolderSelect.Items.AddRange(items);
+				folder_select.Items.AddRange(items);
 			}
 			else
 			{
-				this.FolderSelect.Items.Add(BROWSE_STRING);
+				folder_select.Items.Add(APIForm.BROWSE_STRING);
 			}
 		}
 
-		private void PlatformRadio_64_CheckedChanged(object sender, EventArgs e)
-		{
-			RadioButton r = sender as RadioButton;
-			if(r.Checked)
-			{
-				bool had_idx = (this.FolderSelect.SelectedIndex != -1);
-				SetFolderSelectItems(matlab_registry_x64);
-				if(had_idx)
-				{
-					this.FolderSelect.SelectedItem = this.FolderSelect.Items[0];
-				}
-				this.APIRadio_Data.Enabled = true;
-				this.ArrayDimsRadio_Large.Enabled = true;
-				this.ComplexRadio_Interleaved.Enabled = true;
-			}
-		}
-
-		private void PlatformRadio_32_CheckedChanged(object sender, EventArgs e)
-		{
-			RadioButton r = sender as RadioButton;
-			if(r.Checked)
-			{
-				bool had_idx = (this.FolderSelect.SelectedIndex != -1);
-				SetFolderSelectItems(matlab_registry_x86);
-				if(had_idx)
-				{
-					this.FolderSelect.SelectedItem = this.FolderSelect.Items[0];
-				}
-				this.APIRadio_Matrix.Checked = true;
-				this.ArrayDimsRadio_Compatible.Checked = true;
-				this.ComplexRadio_Separated.Checked = true;
-				this.APIRadio_Data.Enabled = false;
-				this.ArrayDimsRadio_Large.Enabled = false;
-				this.ComplexRadio_Interleaved.Enabled = false;
-			}
-		}
 		protected string[] GetMatlabRootFromRegistry(Platform platform)
 		{
 			if(platform == Platform.X64)
@@ -194,6 +163,58 @@ namespace MatlabInputForm
 			}
 		}
 
+		/* note: these only affect boxes to the right */
+
+		private void PlatformRadio_64_CheckedChanged(object sender, EventArgs e)
+		{
+			RadioButton r = sender as RadioButton;
+			if(r.Checked)
+			{
+				bool had_idx = (this.FolderSelect.SelectedIndex != -1);
+				SetFolderSelectItems(this.FolderSelect, matlab_registry_x64);
+				if(had_idx)
+				{
+					this.FolderSelect.SelectedItem = this.FolderSelect.Items[0];
+				}
+				this.APIRadio_Data.Enabled = true;
+				this.ArrayDimsRadio_Large.Enabled = true;
+				this.ComplexRadio_Interleaved.Enabled = true;
+			}
+		}
+
+		private void PlatformRadio_32_CheckedChanged(object sender, EventArgs e)
+		{
+			RadioButton r = sender as RadioButton;
+			if(r.Checked)
+			{
+				bool had_idx = (this.FolderSelect.SelectedIndex != -1);
+				SetFolderSelectItems(this.FolderSelect, matlab_registry_x86);
+				if(had_idx)
+				{
+					this.FolderSelect.SelectedItem = this.FolderSelect.Items[0];
+				}
+				this.APIRadio_Matrix.Checked = true;
+				this.APIRadio_Data.Enabled = false;
+
+				this.ArrayDimsRadio_Compatible.Checked = true;
+				this.ArrayDimsRadio_Large.Enabled = false;
+
+				this.ComplexRadio_Separated.Checked = true;
+				this.ComplexRadio_Interleaved.Enabled = false;
+			}
+		}
+		private void LanguageRadio_CPP_CheckedChanged(object sender, EventArgs e)
+		{
+			RadioButton r = sender as RadioButton;
+			if(r.Checked)
+			{
+				if(this.PlatformRadio_64.Checked)
+				{
+					this.APIRadio_Data.Enabled = true;
+				}
+			}
+		}
+
 		private void LanguageRadio_C_CheckedChanged(object sender, EventArgs e)
 		{
 			RadioButton r = sender as RadioButton;
@@ -204,12 +225,23 @@ namespace MatlabInputForm
 			}
 		}
 
-		private void LanguageRadio_CPP_CheckedChanged(object sender, EventArgs e)
+
+		private void APIRadio_Matrix_CheckedChanged(object sender, EventArgs e)
 		{
 			RadioButton r = sender as RadioButton;
 			if(r.Checked)
 			{
-				this.APIRadio_Data.Enabled = true;
+				this.ArrayDimsRadio_Large.Enabled = true;
+				this.ArrayDimsRadio_Compatible.Enabled = true;
+				this.ArrayDimsBox.Visible = true;
+
+				this.ComplexRadio_Separated.Enabled = true;
+				this.ComplexRadio_Interleaved.Enabled = true;
+				this.ComplexBox.Visible = true;
+
+				this.GraphicsRadio_object.Enabled = true;
+				this.GraphicsRadio_double.Enabled = true;
+				this.GraphicsBox.Visible = true;
 			}
 		}
 
@@ -220,25 +252,59 @@ namespace MatlabInputForm
 			{
 				this.ArrayDimsRadio_Large.Enabled = false;
 				this.ArrayDimsRadio_Compatible.Enabled = false;
+				this.ArrayDimsBox.Visible = false;
+
 				this.ComplexRadio_Separated.Enabled = false;
 				this.ComplexRadio_Interleaved.Enabled = false;
+				this.ComplexBox.Visible = false;
+
 				this.GraphicsRadio_object.Enabled = false;
 				this.GraphicsRadio_double.Enabled = false;
+				this.GraphicsBox.Visible = false;
+
 			}
 		}
 
-		private void APIRadio_Matrix_CheckedChanged(object sender, EventArgs e)
+		private void ArrayDimsRadio_Large_CheckedChanged(object sender, EventArgs e)
 		{
 			RadioButton r = sender as RadioButton;
 			if(r.Checked)
 			{
-				this.ArrayDimsRadio_Large.Enabled = true;
-				this.ArrayDimsRadio_Compatible.Enabled = true;
-				this.ComplexRadio_Separated.Enabled = true;
-				this.ComplexRadio_Interleaved.Enabled = true;
-				this.GraphicsRadio_object.Enabled = true;
-				this.GraphicsRadio_double.Enabled = true;
+				if(this.PlatformRadio_64.Checked)
+				{
+					this.ComplexRadio_Interleaved.Enabled = true;
+				}
 			}
+		}
+
+		private void ArrayDimsRadio_Compatible_CheckedChanged(object sender, EventArgs e)
+		{
+			RadioButton r = sender as RadioButton;
+			if(r.Checked)
+			{
+				this.ComplexRadio_Separated.Checked = true;
+				this.ComplexRadio_Interleaved.Enabled = false;
+			}
+		}
+
+		private void ComplexRadio_Interleaved_CheckedChanged(object sender, EventArgs e)
+		{
+			// nothing
+		}
+
+		private void ComplexRadio_Separated_CheckedChanged(object sender, EventArgs e)
+		{
+			// nothing
+		}
+
+		private void GraphicsRadio_object_CheckedChanged(object sender, EventArgs e)
+		{
+			// nothing
+		}
+
+		private void GraphicsRadio_double_CheckedChanged(object sender, EventArgs e)
+		{
+			// nothing
 		}
 	}
 
