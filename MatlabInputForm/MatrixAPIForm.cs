@@ -17,6 +17,7 @@ namespace MatlabInputForm
 
 		public MatrixAPIForm()
 		{
+			ml_config = new MatlabConfiguration();
 			InitializeComponent();
 			InitFolderSelect();
 		}
@@ -105,6 +106,9 @@ namespace MatlabInputForm
 				{
 					this.FolderSelect.SelectedItem = this.FolderSelect.Items[0];
 				}
+				this.APIRadio_Data.Enabled = true;
+				this.ArrayDimsRadio_Large.Enabled = true;
+				this.ComplexRadio_Interleaved.Enabled = true;
 			}
 		}
 
@@ -119,6 +123,12 @@ namespace MatlabInputForm
 				{
 					this.FolderSelect.SelectedItem = this.FolderSelect.Items[0];
 				}
+				this.APIRadio_Matrix.Checked = true;
+				this.ArrayDimsRadio_Compatible.Checked = true;
+				this.ComplexRadio_Separated.Checked = true;
+				this.APIRadio_Data.Enabled = false;
+				this.ArrayDimsRadio_Large.Enabled = false;
+				this.ComplexRadio_Interleaved.Enabled = false;
 			}
 		}
 		protected string[] GetMatlabRootFromRegistry(Platform platform)

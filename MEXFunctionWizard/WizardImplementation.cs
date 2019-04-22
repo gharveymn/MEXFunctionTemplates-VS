@@ -90,6 +90,7 @@ namespace MEXFunctionWizard
 					{
 						Directory.Delete(dest_dir, true);
 					}
+					throw;
 				}
 				else
 				{

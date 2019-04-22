@@ -29,6 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ImportReviewForm));
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.PlatformCheck = new System.Windows.Forms.Label();
 			this.APICheck = new System.Windows.Forms.Label();
@@ -295,7 +296,7 @@
 			// 
 			this.LibraryPathCheck.AutoSize = true;
 			this.LibraryPathCheck.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.LibraryPathCheck.Image = global::MatlabInputForm.Properties.Resources.success;
+			this.LibraryPathCheck.Image = ((System.Drawing.Image)(resources.GetObject("LibraryPathCheck.Image")));
 			this.LibraryPathCheck.Location = new System.Drawing.Point(515, 140);
 			this.LibraryPathCheck.Name = "LibraryPathCheck";
 			this.LibraryPathCheck.Size = new System.Drawing.Size(80, 28);
@@ -369,7 +370,6 @@
 			// 
 			// BackButton
 			// 
-			this.BackButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.BackButton.Dock = System.Windows.Forms.DockStyle.Left;
 			this.BackButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BackButton.Location = new System.Drawing.Point(3, 227);

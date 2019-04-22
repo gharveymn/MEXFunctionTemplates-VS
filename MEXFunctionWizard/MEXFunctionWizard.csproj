@@ -3,6 +3,9 @@
   <PropertyGroup>
     <MinimumVisualStudioVersion>15.0</MinimumVisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -21,7 +24,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MEXFunctionWizard</RootNamespace>
     <AssemblyName>MEXFunctionWizard</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <GeneratePkgDefFile>false</GeneratePkgDefFile>
     <IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
     <IncludeDebugSymbolsInVSIXContainer>true</IncludeDebugSymbolsInVSIXContainer>
@@ -88,34 +91,6 @@
     <ProjectReference Include="..\MEXFunctionTemplate\MEXFunctionTemplate.csproj">
       <Project>{7B266E5B-87A5-422D-8B0D-2C46E516A861}</Project>
       <Name>MEXFunctionTemplate</Name>
-      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
-    </ProjectReference>
-    <ProjectReference Include="..\MEXFunctionTemplate_CPP\MEXFunctionTemplate_CPP.csproj">
-      <Project>{5EC44FCA-E747-4BA4-B2C9-49AAFE365C5A}</Project>
-      <Name>MEXFunctionTemplate_CPP</Name>
-      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
-    </ProjectReference>
-    <ProjectReference Include="..\MEXFunctionTemplate_C\MEXFunctionTemplate_C.csproj">
-      <Project>{280887D3-850C-4843-BBA2-AF60F55A343F}</Project>
-      <Name>MEXFunctionTemplate_C</Name>
-      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
-    </ProjectReference>
-    <ProjectReference Include="..\MEXFunctionTemplate_DATA\MEXFunctionTemplate_DATA.csproj">
-      <Project>{F45B10C7-2E97-481C-932A-D505E06165E7}</Project>
-      <Name>MEXFunctionTemplate_DATA</Name>
-      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
-    </ProjectReference>
-    <ProjectReference Include="..\MEXFunctionTemplate_F\MEXFunctionTemplate_F.csproj">
-      <Project>{E1E45033-32D7-4EBE-8A6B-19A29234EAFD}</Project>
-      <Name>MEXFunctionTemplate_F</Name>
       <VSIXSubPath>ProjectTemplates</VSIXSubPath>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
