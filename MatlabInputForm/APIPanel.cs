@@ -25,24 +25,24 @@ namespace MatlabInputForm
 		private System.Windows.Forms.Button NextButton;
 		private System.Windows.Forms.FolderBrowserDialog FolderBrowser;
 		private System.Windows.Forms.Button BrowseButton;
-		private System.Windows.Forms.ToolTip InterleavedTip;
-		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.ToolTip ToolTip1;
+		private System.Windows.Forms.GroupBox PlatformBox;
 		private System.Windows.Forms.RadioButton PlatformRadio_32;
 		private System.Windows.Forms.RadioButton PlatformRadio_64;
-		private System.Windows.Forms.GroupBox groupBox2;
+		private System.Windows.Forms.GroupBox ArrayDimsBox;
 		private System.Windows.Forms.RadioButton ArrayDimsRadio_Compatible;
 		private System.Windows.Forms.RadioButton ArrayDimsRadio_Large;
-		private System.Windows.Forms.GroupBox groupBox3;
+		private System.Windows.Forms.GroupBox ComplexBox;
 		private System.Windows.Forms.RadioButton ComplexRadio_Interleaved;
 		private System.Windows.Forms.RadioButton ComplexRadio_Separated;
-		private System.Windows.Forms.GroupBox groupBox4;
+		private System.Windows.Forms.GroupBox GraphicsBox;
 		private System.Windows.Forms.RadioButton GraphicsRadio_double;
 		private System.Windows.Forms.RadioButton GraphicsRadio_object;
 		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-		private System.Windows.Forms.GroupBox groupBox5;
+		private System.Windows.Forms.GroupBox LanguageBox;
 		private System.Windows.Forms.RadioButton LanguageRadio_CPP;
 		private System.Windows.Forms.RadioButton LanguageRadio_C;
-		private System.Windows.Forms.GroupBox groupBox6;
+		private System.Windows.Forms.GroupBox APIBox;
 		private System.Windows.Forms.RadioButton APIRadio_Data;
 		private System.Windows.Forms.RadioButton APIRadio_Matrix;
 
@@ -69,33 +69,33 @@ namespace MatlabInputForm
 			this.AbortButton = new System.Windows.Forms.Button();
 			this.NextButton = new System.Windows.Forms.Button();
 			this.FolderBrowser = new System.Windows.Forms.FolderBrowserDialog();
-			this.InterleavedTip = new System.Windows.Forms.ToolTip();
-			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.ToolTip1 = new System.Windows.Forms.ToolTip();
+			this.PlatformBox = new System.Windows.Forms.GroupBox();
 			this.PlatformRadio_32 = new System.Windows.Forms.RadioButton();
 			this.PlatformRadio_64 = new System.Windows.Forms.RadioButton();
-			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.ArrayDimsBox = new System.Windows.Forms.GroupBox();
 			this.ArrayDimsRadio_Compatible = new System.Windows.Forms.RadioButton();
 			this.ArrayDimsRadio_Large = new System.Windows.Forms.RadioButton();
-			this.groupBox3 = new System.Windows.Forms.GroupBox();
+			this.ComplexBox = new System.Windows.Forms.GroupBox();
 			this.ComplexRadio_Interleaved = new System.Windows.Forms.RadioButton();
 			this.ComplexRadio_Separated = new System.Windows.Forms.RadioButton();
-			this.groupBox4 = new System.Windows.Forms.GroupBox();
+			this.GraphicsBox = new System.Windows.Forms.GroupBox();
 			this.GraphicsRadio_double = new System.Windows.Forms.RadioButton();
 			this.GraphicsRadio_object = new System.Windows.Forms.RadioButton();
 			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-			this.groupBox5 = new System.Windows.Forms.GroupBox();
-			this.LanguageRadio_C = new System.Windows.Forms.RadioButton();
+			this.LanguageBox = new System.Windows.Forms.GroupBox();
 			this.LanguageRadio_CPP = new System.Windows.Forms.RadioButton();
-			this.groupBox6 = new System.Windows.Forms.GroupBox();
-			this.APIRadio_Matrix = new System.Windows.Forms.RadioButton();
+			this.LanguageRadio_C = new System.Windows.Forms.RadioButton();
+			this.APIBox = new System.Windows.Forms.GroupBox();
 			this.APIRadio_Data = new System.Windows.Forms.RadioButton();
+			this.APIRadio_Matrix = new System.Windows.Forms.RadioButton();
 			// 
 			// tableLayoutPanel1
 			// 
 			this.tableLayoutPanel1.ColumnCount = 3;
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.53535F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.46465F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 84F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.875F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.125F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
 			this.tableLayoutPanel1.Controls.Add(this.MLLabel, 0, 0);
 			this.tableLayoutPanel1.Controls.Add(this.FolderSelect, 1, 0);
 			this.tableLayoutPanel1.Controls.Add(this.BrowseButton, 2, 0);
@@ -116,7 +116,7 @@ namespace MatlabInputForm
 			this.MLLabel.AutoSize = true;
 			this.MLLabel.Dock = System.Windows.Forms.DockStyle.Right;
 			this.MLLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.MLLabel.Location = new System.Drawing.Point(38, 0);
+			this.MLLabel.Location = new System.Drawing.Point(4, 0);
 			this.MLLabel.Name = "MLLabel";
 			this.MLLabel.Size = new System.Drawing.Size(105, 29);
 			this.MLLabel.TabIndex = 2;
@@ -129,18 +129,18 @@ namespace MatlabInputForm
 			this.FolderSelect.Dock = System.Windows.Forms.DockStyle.Top;
 			this.FolderSelect.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.FolderSelect.FormattingEnabled = true;
-			this.FolderSelect.Location = new System.Drawing.Point(149, 3);
+			this.FolderSelect.Location = new System.Drawing.Point(115, 3);
 			this.FolderSelect.Name = "FolderSelect";
-			this.FolderSelect.Size = new System.Drawing.Size(361, 21);
+			this.FolderSelect.Size = new System.Drawing.Size(394, 21);
 			this.FolderSelect.TabIndex = 3;
 			this.FolderSelect.SelectionChangeCommitted += new System.EventHandler(this.FolderSelect_SelectionChangeCommitted);
 			// 
 			// BrowseButton
 			// 
 			this.BrowseButton.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.BrowseButton.Location = new System.Drawing.Point(516, 3);
+			this.BrowseButton.Location = new System.Drawing.Point(515, 3);
 			this.BrowseButton.Name = "BrowseButton";
-			this.BrowseButton.Size = new System.Drawing.Size(79, 23);
+			this.BrowseButton.Size = new System.Drawing.Size(80, 23);
 			this.BrowseButton.TabIndex = 4;
 			this.BrowseButton.Text = "Browse";
 			this.BrowseButton.UseVisualStyleBackColor = true;
@@ -150,9 +150,9 @@ namespace MatlabInputForm
 			// 
 			this.AbortButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.AbortButton.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.AbortButton.Location = new System.Drawing.Point(516, 32);
+			this.AbortButton.Location = new System.Drawing.Point(515, 32);
 			this.AbortButton.Name = "AbortButton";
-			this.AbortButton.Size = new System.Drawing.Size(79, 23);
+			this.AbortButton.Size = new System.Drawing.Size(80, 23);
 			this.AbortButton.TabIndex = 5;
 			this.AbortButton.Text = "Cancel";
 			this.AbortButton.UseVisualStyleBackColor = true;
@@ -161,7 +161,7 @@ namespace MatlabInputForm
 			// NextButton
 			// 
 			this.NextButton.Dock = System.Windows.Forms.DockStyle.Right;
-			this.NextButton.Location = new System.Drawing.Point(435, 32);
+			this.NextButton.Location = new System.Drawing.Point(434, 32);
 			this.NextButton.Name = "NextButton";
 			this.NextButton.Size = new System.Drawing.Size(75, 23);
 			this.NextButton.TabIndex = 6;
@@ -175,17 +175,17 @@ namespace MatlabInputForm
     "atlabroot\' at the MATLAB prompt.";
 			this.FolderBrowser.ShowNewFolderButton = false;
 			// 
-			// groupBox1
+			// PlatformBox
 			// 
-			this.groupBox1.Controls.Add(this.PlatformRadio_32);
-			this.groupBox1.Controls.Add(this.PlatformRadio_64);
-			this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.groupBox1.Location = new System.Drawing.Point(3, 3);
-			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(64, 59);
-			this.groupBox1.TabIndex = 3;
-			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "Platform";
+			this.PlatformBox.Controls.Add(this.PlatformRadio_32);
+			this.PlatformBox.Controls.Add(this.PlatformRadio_64);
+			this.PlatformBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.PlatformBox.Location = new System.Drawing.Point(3, 3);
+			this.PlatformBox.Name = "PlatformBox";
+			this.PlatformBox.Size = new System.Drawing.Size(64, 59);
+			this.PlatformBox.TabIndex = 3;
+			this.PlatformBox.TabStop = false;
+			this.PlatformBox.Text = "Platform";
 			// 
 			// PlatformRadio_32
 			// 
@@ -211,16 +211,16 @@ namespace MatlabInputForm
 			this.PlatformRadio_64.UseVisualStyleBackColor = true;
 			this.PlatformRadio_64.CheckedChanged += new System.EventHandler(this.PlatformRadio_64_CheckedChanged);
 			// 
-			// groupBox2
+			// ArrayDimsBox
 			// 
-			this.groupBox2.Controls.Add(this.ArrayDimsRadio_Compatible);
-			this.groupBox2.Controls.Add(this.ArrayDimsRadio_Large);
-			this.groupBox2.Location = new System.Drawing.Point(251, 3);
-			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(111, 59);
-			this.groupBox2.TabIndex = 4;
-			this.groupBox2.TabStop = false;
-			this.groupBox2.Text = "Array Dimensions";
+			this.ArrayDimsBox.Controls.Add(this.ArrayDimsRadio_Compatible);
+			this.ArrayDimsBox.Controls.Add(this.ArrayDimsRadio_Large);
+			this.ArrayDimsBox.Location = new System.Drawing.Point(251, 3);
+			this.ArrayDimsBox.Name = "ArrayDimsBox";
+			this.ArrayDimsBox.Size = new System.Drawing.Size(111, 59);
+			this.ArrayDimsBox.TabIndex = 4;
+			this.ArrayDimsBox.TabStop = false;
+			this.ArrayDimsBox.Text = "Array Dimensions";
 			// 
 			// ArrayDimsRadio_Compatible
 			// 
@@ -230,7 +230,9 @@ namespace MatlabInputForm
 			this.ArrayDimsRadio_Compatible.Size = new System.Drawing.Size(84, 17);
 			this.ArrayDimsRadio_Compatible.TabIndex = 1;
 			this.ArrayDimsRadio_Compatible.Text = "Compatible";
+			this.ToolTip1.SetToolTip(this.ArrayDimsRadio_Compatible, "Support for variables with up to 2^31-1 elements");
 			this.ArrayDimsRadio_Compatible.UseVisualStyleBackColor = true;
+			this.ArrayDimsRadio_Compatible.CheckedChanged += new System.EventHandler(this.ArrayDimsRadio_Compatible_CheckedChanged);
 			// 
 			// ArrayDimsRadio_Large
 			// 
@@ -242,51 +244,57 @@ namespace MatlabInputForm
 			this.ArrayDimsRadio_Large.TabIndex = 0;
 			this.ArrayDimsRadio_Large.TabStop = true;
 			this.ArrayDimsRadio_Large.Text = "Large";
+			this.ToolTip1.SetToolTip(this.ArrayDimsRadio_Large, "Support for variables with up to 2^48-1 elements");
 			this.ArrayDimsRadio_Large.UseVisualStyleBackColor = true;
+			this.ArrayDimsRadio_Large.CheckedChanged += new System.EventHandler(this.ArrayDimsRadio_Large_CheckedChanged);
 			// 
-			// groupBox3
+			// ComplexBox
 			// 
-			this.groupBox3.Controls.Add(this.ComplexRadio_Interleaved);
-			this.groupBox3.Controls.Add(this.ComplexRadio_Separated);
-			this.groupBox3.Location = new System.Drawing.Point(368, 3);
-			this.groupBox3.Name = "groupBox3";
-			this.groupBox3.Size = new System.Drawing.Size(114, 59);
-			this.groupBox3.TabIndex = 5;
-			this.groupBox3.TabStop = false;
-			this.groupBox3.Text = "Complex Numbers";
+			this.ComplexBox.Controls.Add(this.ComplexRadio_Interleaved);
+			this.ComplexBox.Controls.Add(this.ComplexRadio_Separated);
+			this.ComplexBox.Location = new System.Drawing.Point(368, 3);
+			this.ComplexBox.Name = "ComplexBox";
+			this.ComplexBox.Size = new System.Drawing.Size(114, 59);
+			this.ComplexBox.TabIndex = 5;
+			this.ComplexBox.TabStop = false;
+			this.ComplexBox.Text = "Complex Numbers";
 			// 
 			// ComplexRadio_Interleaved
 			// 
 			this.ComplexRadio_Interleaved.AutoSize = true;
-			this.ComplexRadio_Interleaved.Checked = true;
-			this.ComplexRadio_Interleaved.Location = new System.Drawing.Point(7, 18);
+			this.ComplexRadio_Interleaved.Location = new System.Drawing.Point(6, 36);
 			this.ComplexRadio_Interleaved.Name = "ComplexRadio_Interleaved";
 			this.ComplexRadio_Interleaved.Size = new System.Drawing.Size(82, 17);
 			this.ComplexRadio_Interleaved.TabIndex = 1;
-			this.ComplexRadio_Interleaved.TabStop = true;
 			this.ComplexRadio_Interleaved.Text = "Interleaved";
+			this.ToolTip1.SetToolTip(this.ComplexRadio_Interleaved, "Store real and imaginary parts of complex numbers side-by-side in memory");
 			this.ComplexRadio_Interleaved.UseVisualStyleBackColor = true;
+			this.ComplexRadio_Interleaved.CheckedChanged += new System.EventHandler(this.ComplexRadio_Interleaved_CheckedChanged);
 			// 
 			// ComplexRadio_Separated
 			// 
 			this.ComplexRadio_Separated.AutoSize = true;
-			this.ComplexRadio_Separated.Location = new System.Drawing.Point(7, 36);
+			this.ComplexRadio_Separated.Checked = true;
+			this.ComplexRadio_Separated.Location = new System.Drawing.Point(6, 18);
 			this.ComplexRadio_Separated.Name = "ComplexRadio_Separated";
 			this.ComplexRadio_Separated.Size = new System.Drawing.Size(77, 17);
 			this.ComplexRadio_Separated.TabIndex = 0;
+			this.ComplexRadio_Separated.TabStop = true;
 			this.ComplexRadio_Separated.Text = "Separated";
+			this.ToolTip1.SetToolTip(this.ComplexRadio_Separated, "Store real and imaginary parts of complex numbers separately");
 			this.ComplexRadio_Separated.UseVisualStyleBackColor = true;
+			this.ComplexRadio_Separated.CheckedChanged += new System.EventHandler(this.ComplexRadio_Separated_CheckedChanged);
 			// 
-			// groupBox4
+			// GraphicsBox
 			// 
-			this.groupBox4.Controls.Add(this.GraphicsRadio_double);
-			this.groupBox4.Controls.Add(this.GraphicsRadio_object);
-			this.groupBox4.Location = new System.Drawing.Point(488, 3);
-			this.groupBox4.Name = "groupBox4";
-			this.groupBox4.Size = new System.Drawing.Size(102, 59);
-			this.groupBox4.TabIndex = 6;
-			this.groupBox4.TabStop = false;
-			this.groupBox4.Text = "Graphics Class";
+			this.GraphicsBox.Controls.Add(this.GraphicsRadio_double);
+			this.GraphicsBox.Controls.Add(this.GraphicsRadio_object);
+			this.GraphicsBox.Location = new System.Drawing.Point(488, 3);
+			this.GraphicsBox.Name = "GraphicsBox";
+			this.GraphicsBox.Size = new System.Drawing.Size(102, 59);
+			this.GraphicsBox.TabIndex = 6;
+			this.GraphicsBox.TabStop = false;
+			this.GraphicsBox.Text = "Graphics Class";
 			// 
 			// GraphicsRadio_double
 			// 
@@ -297,7 +305,9 @@ namespace MatlabInputForm
 			this.GraphicsRadio_double.Size = new System.Drawing.Size(61, 17);
 			this.GraphicsRadio_double.TabIndex = 1;
 			this.GraphicsRadio_double.Text = "double";
+			this.ToolTip1.SetToolTip(this.GraphicsRadio_double, "Use graphics object handles with class \'double\'");
 			this.GraphicsRadio_double.UseVisualStyleBackColor = true;
+			this.GraphicsRadio_double.CheckedChanged += new System.EventHandler(this.GraphicsRadio_double_CheckedChanged);
 			// 
 			// GraphicsRadio_object
 			// 
@@ -310,16 +320,18 @@ namespace MatlabInputForm
 			this.GraphicsRadio_object.TabIndex = 0;
 			this.GraphicsRadio_object.TabStop = true;
 			this.GraphicsRadio_object.Text = "object";
+			this.ToolTip1.SetToolTip(this.GraphicsRadio_object, "Use graphics object handles with class \'object \'");
 			this.GraphicsRadio_object.UseVisualStyleBackColor = true;
+			this.GraphicsRadio_object.CheckedChanged += new System.EventHandler(this.GraphicsRadio_object_CheckedChanged);
 			// 
 			// flowLayoutPanel1
 			// 
-			this.flowLayoutPanel1.Controls.Add(this.groupBox1);
-			this.flowLayoutPanel1.Controls.Add(this.groupBox5);
-			this.flowLayoutPanel1.Controls.Add(this.groupBox6);
-			this.flowLayoutPanel1.Controls.Add(this.groupBox2);
-			this.flowLayoutPanel1.Controls.Add(this.groupBox3);
-			this.flowLayoutPanel1.Controls.Add(this.groupBox4);
+			this.flowLayoutPanel1.Controls.Add(this.PlatformBox);
+			this.flowLayoutPanel1.Controls.Add(this.LanguageBox);
+			this.flowLayoutPanel1.Controls.Add(this.APIBox);
+			this.flowLayoutPanel1.Controls.Add(this.ArrayDimsBox);
+			this.flowLayoutPanel1.Controls.Add(this.ComplexBox);
+			this.flowLayoutPanel1.Controls.Add(this.GraphicsBox);
 			this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.flowLayoutPanel1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -327,24 +339,26 @@ namespace MatlabInputForm
 			this.flowLayoutPanel1.Size = new System.Drawing.Size(598, 65);
 			this.flowLayoutPanel1.TabIndex = 7;
 			// 
-			// groupBox5
+			// LanguageBox
 			// 
-			this.groupBox5.Controls.Add(this.LanguageRadio_CPP);
-			this.groupBox5.Controls.Add(this.LanguageRadio_C);
-			this.groupBox5.Location = new System.Drawing.Point(73, 3);
-			this.groupBox5.Name = "groupBox5";
-			this.groupBox5.Size = new System.Drawing.Size(80, 59);
-			this.groupBox5.TabIndex = 7;
-			this.groupBox5.TabStop = false;
-			this.groupBox5.Text = "Language";
+			this.LanguageBox.Controls.Add(this.LanguageRadio_CPP);
+			this.LanguageBox.Controls.Add(this.LanguageRadio_C);
+			this.LanguageBox.Location = new System.Drawing.Point(73, 3);
+			this.LanguageBox.Name = "LanguageBox";
+			this.LanguageBox.Size = new System.Drawing.Size(80, 59);
+			this.LanguageBox.TabIndex = 7;
+			this.LanguageBox.TabStop = false;
+			this.LanguageBox.Text = "Language";
 			// 
 			// LanguageRadio_CPP
 			// 
 			this.LanguageRadio_CPP.AutoSize = true;
-			this.LanguageRadio_CPP.Location = new System.Drawing.Point(7, 36);
+			this.LanguageRadio_CPP.Checked = true;
+			this.LanguageRadio_CPP.Location = new System.Drawing.Point(6, 18);
 			this.LanguageRadio_CPP.Name = "LanguageRadio_CPP";
 			this.LanguageRadio_CPP.Size = new System.Drawing.Size(48, 17);
 			this.LanguageRadio_CPP.TabIndex = 1;
+			this.LanguageRadio_CPP.TabStop = true;
 			this.LanguageRadio_CPP.Text = "C++";
 			this.LanguageRadio_CPP.UseVisualStyleBackColor = true;
 			this.LanguageRadio_CPP.CheckedChanged += new System.EventHandler(this.LanguageRadio_CPP_CheckedChanged);
@@ -352,31 +366,28 @@ namespace MatlabInputForm
 			// LanguageRadio_C
 			// 
 			this.LanguageRadio_C.AutoSize = true;
-			this.LanguageRadio_C.Checked = true;
-			this.LanguageRadio_C.Location = new System.Drawing.Point(7, 18);
+			this.LanguageRadio_C.Location = new System.Drawing.Point(6, 36);
 			this.LanguageRadio_C.Name = "LanguageRadio_C";
 			this.LanguageRadio_C.Size = new System.Drawing.Size(32, 17);
 			this.LanguageRadio_C.TabIndex = 0;
-			this.LanguageRadio_C.TabStop = true;
 			this.LanguageRadio_C.Text = "C";
 			this.LanguageRadio_C.UseVisualStyleBackColor = true;
 			this.LanguageRadio_C.CheckedChanged += new System.EventHandler(this.LanguageRadio_C_CheckedChanged);
 			// 
-			// groupBox6
+			// APIBox
 			// 
-			this.groupBox6.Controls.Add(this.APIRadio_Data);
-			this.groupBox6.Controls.Add(this.APIRadio_Matrix);
-			this.groupBox6.Location = new System.Drawing.Point(159, 3);
-			this.groupBox6.Name = "groupBox6";
-			this.groupBox6.Size = new System.Drawing.Size(86, 59);
-			this.groupBox6.TabIndex = 8;
-			this.groupBox6.TabStop = false;
-			this.groupBox6.Text = "API";
+			this.APIBox.Controls.Add(this.APIRadio_Data);
+			this.APIBox.Controls.Add(this.APIRadio_Matrix);
+			this.APIBox.Location = new System.Drawing.Point(159, 3);
+			this.APIBox.Name = "APIBox";
+			this.APIBox.Size = new System.Drawing.Size(86, 59);
+			this.APIBox.TabIndex = 8;
+			this.APIBox.TabStop = false;
+			this.APIBox.Text = "API";
 			// 
 			// APIRadio_Data
 			// 
 			this.APIRadio_Data.AutoSize = true;
-			this.APIRadio_Data.Enabled = false;
 			this.APIRadio_Data.Location = new System.Drawing.Point(7, 36);
 			this.APIRadio_Data.Name = "APIRadio_Data";
 			this.APIRadio_Data.Size = new System.Drawing.Size(68, 17);
@@ -402,13 +413,13 @@ namespace MatlabInputForm
 		public void ShowPanel()
 		{
 			this.tableLayoutPanel1.SuspendLayout();
-			this.groupBox1.SuspendLayout();
-			this.groupBox2.SuspendLayout();
-			this.groupBox3.SuspendLayout();
-			this.groupBox4.SuspendLayout();
+			this.PlatformBox.SuspendLayout();
+			this.ArrayDimsBox.SuspendLayout();
+			this.ComplexBox.SuspendLayout();
+			this.GraphicsBox.SuspendLayout();
 			this.flowLayoutPanel1.SuspendLayout();
-			this.groupBox5.SuspendLayout();
-			this.groupBox6.SuspendLayout();
+			this.LanguageBox.SuspendLayout();
+			this.APIBox.SuspendLayout();
 			parent.SuspendLayout();
 			parent.AcceptButton = this.NextButton;
 			parent.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -420,22 +431,22 @@ namespace MatlabInputForm
 			parent.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			parent.Icon = global::MatlabInputForm.Properties.Resources.matlab_logo;
 			parent.Name = "APIForm";
-			parent.Text = "MEX Function Wizard - API Selection";
+			parent.Text = "MEX Function Wizard";
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
-			this.groupBox1.ResumeLayout(false);
-			this.groupBox1.PerformLayout();
-			this.groupBox2.ResumeLayout(false);
-			this.groupBox2.PerformLayout();
-			this.groupBox3.ResumeLayout(false);
-			this.groupBox3.PerformLayout();
-			this.groupBox4.ResumeLayout(false);
-			this.groupBox4.PerformLayout();
+			this.PlatformBox.ResumeLayout(false);
+			this.PlatformBox.PerformLayout();
+			this.ArrayDimsBox.ResumeLayout(false);
+			this.ArrayDimsBox.PerformLayout();
+			this.ComplexBox.ResumeLayout(false);
+			this.ComplexBox.PerformLayout();
+			this.GraphicsBox.ResumeLayout(false);
+			this.GraphicsBox.PerformLayout();
 			this.flowLayoutPanel1.ResumeLayout(false);
-			this.groupBox5.ResumeLayout(false);
-			this.groupBox5.PerformLayout();
-			this.groupBox6.ResumeLayout(false);
-			this.groupBox6.PerformLayout();
+			this.LanguageBox.ResumeLayout(false);
+			this.LanguageBox.PerformLayout();
+			this.APIBox.ResumeLayout(false);
+			this.APIBox.PerformLayout();
 			parent.ResumeLayout(false);
 		}
 
@@ -583,13 +594,15 @@ namespace MatlabInputForm
 			parent.import_panel.ShowPanel();
 		}
 
+		/* note: these only affect boxes to the right */
+
 		private void PlatformRadio_64_CheckedChanged(object sender, EventArgs e)
 		{
 			RadioButton r = sender as RadioButton;
 			if(r.Checked)
 			{
 				bool had_idx = (this.FolderSelect.SelectedIndex != -1);
-				APIPanel.SetFolderSelectItems(this.FolderSelect, matlab_registry_x64);
+				SetFolderSelectItems(this.FolderSelect, matlab_registry_x64);
 				if(had_idx)
 				{
 					this.FolderSelect.SelectedItem = this.FolderSelect.Items[0];
@@ -606,17 +619,30 @@ namespace MatlabInputForm
 			if(r.Checked)
 			{
 				bool had_idx = (this.FolderSelect.SelectedIndex != -1);
-				APIPanel.SetFolderSelectItems(this.FolderSelect, matlab_registry_x86);
+				SetFolderSelectItems(this.FolderSelect, matlab_registry_x86);
 				if(had_idx)
 				{
 					this.FolderSelect.SelectedItem = this.FolderSelect.Items[0];
 				}
 				this.APIRadio_Matrix.Checked = true;
-				this.ArrayDimsRadio_Compatible.Checked = true;
-				this.ComplexRadio_Separated.Checked = true;
 				this.APIRadio_Data.Enabled = false;
+
+				this.ArrayDimsRadio_Compatible.Checked = true;
 				this.ArrayDimsRadio_Large.Enabled = false;
+
+				this.ComplexRadio_Separated.Checked = true;
 				this.ComplexRadio_Interleaved.Enabled = false;
+			}
+		}
+		private void LanguageRadio_CPP_CheckedChanged(object sender, EventArgs e)
+		{
+			RadioButton r = sender as RadioButton;
+			if(r.Checked)
+			{
+				if(this.PlatformRadio_64.Checked)
+				{
+					this.APIRadio_Data.Enabled = true;
+				}
 			}
 		}
 
@@ -630,12 +656,22 @@ namespace MatlabInputForm
 			}
 		}
 
-		private void LanguageRadio_CPP_CheckedChanged(object sender, EventArgs e)
+		private void APIRadio_Matrix_CheckedChanged(object sender, EventArgs e)
 		{
 			RadioButton r = sender as RadioButton;
 			if(r.Checked)
 			{
-				this.APIRadio_Data.Enabled = true;
+				this.ArrayDimsRadio_Large.Enabled = true;
+				this.ArrayDimsRadio_Compatible.Enabled = true;
+				this.ArrayDimsBox.Visible = true;
+
+				this.ComplexRadio_Separated.Enabled = true;
+				this.ComplexRadio_Interleaved.Enabled = true;
+				this.ComplexBox.Visible = true;
+
+				this.GraphicsRadio_object.Enabled = true;
+				this.GraphicsRadio_double.Enabled = true;
+				this.GraphicsBox.Visible = true;
 			}
 		}
 
@@ -646,25 +682,59 @@ namespace MatlabInputForm
 			{
 				this.ArrayDimsRadio_Large.Enabled = false;
 				this.ArrayDimsRadio_Compatible.Enabled = false;
+				this.ArrayDimsBox.Visible = false;
+
 				this.ComplexRadio_Separated.Enabled = false;
 				this.ComplexRadio_Interleaved.Enabled = false;
+				this.ComplexBox.Visible = false;
+
 				this.GraphicsRadio_object.Enabled = false;
 				this.GraphicsRadio_double.Enabled = false;
+				this.GraphicsBox.Visible = false;
+
 			}
 		}
 
-		private void APIRadio_Matrix_CheckedChanged(object sender, EventArgs e)
+		private void ArrayDimsRadio_Large_CheckedChanged(object sender, EventArgs e)
 		{
 			RadioButton r = sender as RadioButton;
 			if(r.Checked)
 			{
-				this.ArrayDimsRadio_Large.Enabled = true;
-				this.ArrayDimsRadio_Compatible.Enabled = true;
-				this.ComplexRadio_Separated.Enabled = true;
-				this.ComplexRadio_Interleaved.Enabled = true;
-				this.GraphicsRadio_object.Enabled = true;
-				this.GraphicsRadio_double.Enabled = true;
+				if(this.PlatformRadio_64.Checked)
+				{
+					this.ComplexRadio_Interleaved.Enabled = true;
+				}
 			}
+		}
+
+		private void ArrayDimsRadio_Compatible_CheckedChanged(object sender, EventArgs e)
+		{
+			RadioButton r = sender as RadioButton;
+			if(r.Checked)
+			{
+				this.ComplexRadio_Separated.Checked = true;
+				this.ComplexRadio_Interleaved.Enabled = false;
+			}
+		}
+
+		private void ComplexRadio_Interleaved_CheckedChanged(object sender, EventArgs e)
+		{
+			// nothing
+		}
+
+		private void ComplexRadio_Separated_CheckedChanged(object sender, EventArgs e)
+		{
+			// nothing
+		}
+
+		private void GraphicsRadio_object_CheckedChanged(object sender, EventArgs e)
+		{
+			// nothing
+		}
+
+		private void GraphicsRadio_double_CheckedChanged(object sender, EventArgs e)
+		{
+			// nothing
 		}
 
 	}
