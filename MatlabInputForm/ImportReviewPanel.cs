@@ -356,7 +356,6 @@ namespace MatlabInputForm
 			// 
 			// BackButton
 			// 
-			this.BackButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.BackButton.Dock = System.Windows.Forms.DockStyle.Left;
 			this.BackButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BackButton.Location = new System.Drawing.Point(3, 227);
@@ -452,15 +451,21 @@ namespace MatlabInputForm
 
 			this.IncludePathText.Text = ml_config.imports.IncludePath;
 			this.ToolTip1.SetToolTip(this.IncludePathText, ml_config.imports.ReplaceMacro(this.IncludePathText.Text));
-
-			this.PreprocessorText.Text = ml_config.imports.PreprocessorDefinitions;
-			this.ToolTip1.SetToolTip(this.PreprocessorText, ml_config.imports.ReplaceMacro(this.PreprocessorText.Text));
+			check_result = ml_config.imports.CheckIncludePath(out check_text);
+			SetCheckInfo(this.IncludePathCheck, check_result, check_text);
 
 			this.LibPathText.Text = ml_config.imports.LibraryPath;
 			this.ToolTip1.SetToolTip(this.LibPathText, ml_config.imports.ReplaceMacro(this.LibPathText.Text));
+			check_result = ml_config.imports.CheckLibraryPath(out check_text);
+			SetCheckInfo(this.LibraryPathCheck, check_result, check_text);
 
 			this.DependsText.Text = ml_config.imports.Dependencies;
 			this.ToolTip1.SetToolTip(this.DependsText, ml_config.imports.ReplaceMacro(this.DependsText.Text));
+			check_result = ml_config.imports.CheckDependencies(out check_text);
+			SetCheckInfo(this.DependsCheck, check_result, check_text);
+
+			this.PreprocessorText.Text = ml_config.imports.PreprocessorDefinitions;
+			this.ToolTip1.SetToolTip(this.PreprocessorText, ml_config.imports.ReplaceMacro(this.PreprocessorText.Text));
 
 		}
 

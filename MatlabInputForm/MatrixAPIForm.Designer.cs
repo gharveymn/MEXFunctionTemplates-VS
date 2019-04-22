@@ -51,11 +51,11 @@
 			this.GraphicsRadio_object = new System.Windows.Forms.RadioButton();
 			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
 			this.groupBox5 = new System.Windows.Forms.GroupBox();
-			this.LanguageRadio_C = new System.Windows.Forms.RadioButton();
 			this.LanguageRadio_CPP = new System.Windows.Forms.RadioButton();
+			this.LanguageRadio_C = new System.Windows.Forms.RadioButton();
 			this.groupBox6 = new System.Windows.Forms.GroupBox();
-			this.APIRadio_Matrix = new System.Windows.Forms.RadioButton();
 			this.APIRadio_Data = new System.Windows.Forms.RadioButton();
+			this.APIRadio_Matrix = new System.Windows.Forms.RadioButton();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
@@ -71,7 +71,7 @@
 			this.tableLayoutPanel1.ColumnCount = 3;
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.53535F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.46465F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 82F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 84F));
 			this.tableLayoutPanel1.Controls.Add(this.MLLabel, 0, 0);
 			this.tableLayoutPanel1.Controls.Add(this.FolderSelect, 1, 0);
 			this.tableLayoutPanel1.Controls.Add(this.BrowseButton, 2, 0);
@@ -92,7 +92,7 @@
 			this.MLLabel.AutoSize = true;
 			this.MLLabel.Dock = System.Windows.Forms.DockStyle.Right;
 			this.MLLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.MLLabel.Location = new System.Drawing.Point(39, 0);
+			this.MLLabel.Location = new System.Drawing.Point(38, 0);
 			this.MLLabel.Name = "MLLabel";
 			this.MLLabel.Size = new System.Drawing.Size(105, 29);
 			this.MLLabel.TabIndex = 2;
@@ -105,18 +105,18 @@
 			this.FolderSelect.Dock = System.Windows.Forms.DockStyle.Top;
 			this.FolderSelect.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.FolderSelect.FormattingEnabled = true;
-			this.FolderSelect.Location = new System.Drawing.Point(150, 3);
+			this.FolderSelect.Location = new System.Drawing.Point(149, 3);
 			this.FolderSelect.Name = "FolderSelect";
-			this.FolderSelect.Size = new System.Drawing.Size(362, 21);
+			this.FolderSelect.Size = new System.Drawing.Size(361, 21);
 			this.FolderSelect.TabIndex = 3;
 			this.FolderSelect.SelectionChangeCommitted += new System.EventHandler(this.FolderSelect_SelectionChangeCommitted);
 			// 
 			// BrowseButton
 			// 
 			this.BrowseButton.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.BrowseButton.Location = new System.Drawing.Point(518, 3);
+			this.BrowseButton.Location = new System.Drawing.Point(516, 3);
 			this.BrowseButton.Name = "BrowseButton";
-			this.BrowseButton.Size = new System.Drawing.Size(77, 23);
+			this.BrowseButton.Size = new System.Drawing.Size(79, 23);
 			this.BrowseButton.TabIndex = 4;
 			this.BrowseButton.Text = "Browse";
 			this.BrowseButton.UseVisualStyleBackColor = true;
@@ -126,9 +126,9 @@
 			// 
 			this.AbortButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.AbortButton.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.AbortButton.Location = new System.Drawing.Point(518, 32);
+			this.AbortButton.Location = new System.Drawing.Point(516, 32);
 			this.AbortButton.Name = "AbortButton";
-			this.AbortButton.Size = new System.Drawing.Size(77, 23);
+			this.AbortButton.Size = new System.Drawing.Size(79, 23);
 			this.AbortButton.TabIndex = 5;
 			this.AbortButton.Text = "Cancel";
 			this.AbortButton.UseVisualStyleBackColor = true;
@@ -137,7 +137,7 @@
 			// NextButton
 			// 
 			this.NextButton.Dock = System.Windows.Forms.DockStyle.Right;
-			this.NextButton.Location = new System.Drawing.Point(437, 32);
+			this.NextButton.Location = new System.Drawing.Point(435, 32);
 			this.NextButton.Name = "NextButton";
 			this.NextButton.Size = new System.Drawing.Size(75, 23);
 			this.NextButton.TabIndex = 6;
@@ -166,7 +166,7 @@
 			// PlatformRadio_32
 			// 
 			this.PlatformRadio_32.AutoSize = true;
-			this.PlatformRadio_32.Location = new System.Drawing.Point(3, 36);
+			this.PlatformRadio_32.Location = new System.Drawing.Point(7, 36);
 			this.PlatformRadio_32.Name = "PlatformRadio_32";
 			this.PlatformRadio_32.Size = new System.Drawing.Size(55, 17);
 			this.PlatformRadio_32.TabIndex = 1;
@@ -178,10 +178,9 @@
 			// 
 			this.PlatformRadio_64.AutoSize = true;
 			this.PlatformRadio_64.Checked = true;
-			this.PlatformRadio_64.Dock = System.Windows.Forms.DockStyle.Top;
-			this.PlatformRadio_64.Location = new System.Drawing.Point(3, 18);
+			this.PlatformRadio_64.Location = new System.Drawing.Point(7, 18);
 			this.PlatformRadio_64.Name = "PlatformRadio_64";
-			this.PlatformRadio_64.Size = new System.Drawing.Size(58, 17);
+			this.PlatformRadio_64.Size = new System.Drawing.Size(55, 17);
 			this.PlatformRadio_64.TabIndex = 0;
 			this.PlatformRadio_64.TabStop = true;
 			this.PlatformRadio_64.Text = "64-bit";
@@ -202,7 +201,7 @@
 			// ArrayDimsRadio_Compatible
 			// 
 			this.ArrayDimsRadio_Compatible.AutoSize = true;
-			this.ArrayDimsRadio_Compatible.Location = new System.Drawing.Point(3, 36);
+			this.ArrayDimsRadio_Compatible.Location = new System.Drawing.Point(7, 36);
 			this.ArrayDimsRadio_Compatible.Name = "ArrayDimsRadio_Compatible";
 			this.ArrayDimsRadio_Compatible.Size = new System.Drawing.Size(84, 17);
 			this.ArrayDimsRadio_Compatible.TabIndex = 1;
@@ -213,10 +212,9 @@
 			// 
 			this.ArrayDimsRadio_Large.AutoSize = true;
 			this.ArrayDimsRadio_Large.Checked = true;
-			this.ArrayDimsRadio_Large.Dock = System.Windows.Forms.DockStyle.Top;
-			this.ArrayDimsRadio_Large.Location = new System.Drawing.Point(3, 18);
+			this.ArrayDimsRadio_Large.Location = new System.Drawing.Point(7, 18);
 			this.ArrayDimsRadio_Large.Name = "ArrayDimsRadio_Large";
-			this.ArrayDimsRadio_Large.Size = new System.Drawing.Size(105, 17);
+			this.ArrayDimsRadio_Large.Size = new System.Drawing.Size(53, 17);
 			this.ArrayDimsRadio_Large.TabIndex = 0;
 			this.ArrayDimsRadio_Large.TabStop = true;
 			this.ArrayDimsRadio_Large.Text = "Large";
@@ -236,23 +234,22 @@
 			// ComplexRadio_Interleaved
 			// 
 			this.ComplexRadio_Interleaved.AutoSize = true;
-			this.ComplexRadio_Interleaved.Location = new System.Drawing.Point(3, 36);
+			this.ComplexRadio_Interleaved.Checked = true;
+			this.ComplexRadio_Interleaved.Location = new System.Drawing.Point(7, 18);
 			this.ComplexRadio_Interleaved.Name = "ComplexRadio_Interleaved";
 			this.ComplexRadio_Interleaved.Size = new System.Drawing.Size(82, 17);
 			this.ComplexRadio_Interleaved.TabIndex = 1;
+			this.ComplexRadio_Interleaved.TabStop = true;
 			this.ComplexRadio_Interleaved.Text = "Interleaved";
 			this.ComplexRadio_Interleaved.UseVisualStyleBackColor = true;
 			// 
 			// ComplexRadio_Separated
 			// 
 			this.ComplexRadio_Separated.AutoSize = true;
-			this.ComplexRadio_Separated.Checked = true;
-			this.ComplexRadio_Separated.Dock = System.Windows.Forms.DockStyle.Top;
-			this.ComplexRadio_Separated.Location = new System.Drawing.Point(3, 18);
+			this.ComplexRadio_Separated.Location = new System.Drawing.Point(7, 36);
 			this.ComplexRadio_Separated.Name = "ComplexRadio_Separated";
-			this.ComplexRadio_Separated.Size = new System.Drawing.Size(108, 17);
+			this.ComplexRadio_Separated.Size = new System.Drawing.Size(77, 17);
 			this.ComplexRadio_Separated.TabIndex = 0;
-			this.ComplexRadio_Separated.TabStop = true;
 			this.ComplexRadio_Separated.Text = "Separated";
 			this.ComplexRadio_Separated.UseVisualStyleBackColor = true;
 			// 
@@ -271,7 +268,7 @@
 			// 
 			this.GraphicsRadio_double.AutoSize = true;
 			this.GraphicsRadio_double.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.GraphicsRadio_double.Location = new System.Drawing.Point(3, 36);
+			this.GraphicsRadio_double.Location = new System.Drawing.Point(7, 37);
 			this.GraphicsRadio_double.Name = "GraphicsRadio_double";
 			this.GraphicsRadio_double.Size = new System.Drawing.Size(61, 17);
 			this.GraphicsRadio_double.TabIndex = 1;
@@ -282,11 +279,10 @@
 			// 
 			this.GraphicsRadio_object.AutoSize = true;
 			this.GraphicsRadio_object.Checked = true;
-			this.GraphicsRadio_object.Dock = System.Windows.Forms.DockStyle.Top;
 			this.GraphicsRadio_object.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.GraphicsRadio_object.Location = new System.Drawing.Point(3, 18);
+			this.GraphicsRadio_object.Location = new System.Drawing.Point(7, 18);
 			this.GraphicsRadio_object.Name = "GraphicsRadio_object";
-			this.GraphicsRadio_object.Size = new System.Drawing.Size(96, 17);
+			this.GraphicsRadio_object.Size = new System.Drawing.Size(61, 17);
 			this.GraphicsRadio_object.TabIndex = 0;
 			this.GraphicsRadio_object.TabStop = true;
 			this.GraphicsRadio_object.Text = "object";
@@ -318,6 +314,17 @@
 			this.groupBox5.TabStop = false;
 			this.groupBox5.Text = "Language";
 			// 
+			// LanguageRadio_CPP
+			// 
+			this.LanguageRadio_CPP.AutoSize = true;
+			this.LanguageRadio_CPP.Location = new System.Drawing.Point(7, 36);
+			this.LanguageRadio_CPP.Name = "LanguageRadio_CPP";
+			this.LanguageRadio_CPP.Size = new System.Drawing.Size(48, 17);
+			this.LanguageRadio_CPP.TabIndex = 1;
+			this.LanguageRadio_CPP.Text = "C++";
+			this.LanguageRadio_CPP.UseVisualStyleBackColor = true;
+			this.LanguageRadio_CPP.CheckedChanged += new System.EventHandler(this.LanguageRadio_CPP_CheckedChanged);
+			// 
 			// LanguageRadio_C
 			// 
 			this.LanguageRadio_C.AutoSize = true;
@@ -331,17 +338,6 @@
 			this.LanguageRadio_C.UseVisualStyleBackColor = true;
 			this.LanguageRadio_C.CheckedChanged += new System.EventHandler(this.LanguageRadio_C_CheckedChanged);
 			// 
-			// LanguageRadio_CPP
-			// 
-			this.LanguageRadio_CPP.AutoSize = true;
-			this.LanguageRadio_CPP.Location = new System.Drawing.Point(7, 36);
-			this.LanguageRadio_CPP.Name = "LanguageRadio_CPP";
-			this.LanguageRadio_CPP.Size = new System.Drawing.Size(48, 17);
-			this.LanguageRadio_CPP.TabIndex = 1;
-			this.LanguageRadio_CPP.Text = "C++";
-			this.LanguageRadio_CPP.UseVisualStyleBackColor = true;
-			this.LanguageRadio_CPP.CheckedChanged += new System.EventHandler(this.LanguageRadio_CPP_CheckedChanged);
-			// 
 			// groupBox6
 			// 
 			this.groupBox6.Controls.Add(this.APIRadio_Data);
@@ -352,6 +348,18 @@
 			this.groupBox6.TabIndex = 8;
 			this.groupBox6.TabStop = false;
 			this.groupBox6.Text = "API";
+			// 
+			// APIRadio_Data
+			// 
+			this.APIRadio_Data.AutoSize = true;
+			this.APIRadio_Data.Enabled = false;
+			this.APIRadio_Data.Location = new System.Drawing.Point(7, 36);
+			this.APIRadio_Data.Name = "APIRadio_Data";
+			this.APIRadio_Data.Size = new System.Drawing.Size(68, 17);
+			this.APIRadio_Data.TabIndex = 1;
+			this.APIRadio_Data.Text = "Data API";
+			this.APIRadio_Data.UseVisualStyleBackColor = true;
+			this.APIRadio_Data.CheckedChanged += new System.EventHandler(this.APIRadio_Data_CheckedChanged);
 			// 
 			// APIRadio_Matrix
 			// 
@@ -365,18 +373,6 @@
 			this.APIRadio_Matrix.Text = "Matrix API";
 			this.APIRadio_Matrix.UseVisualStyleBackColor = true;
 			this.APIRadio_Matrix.CheckedChanged += new System.EventHandler(this.APIRadio_Matrix_CheckedChanged);
-			// 
-			// APIRadio_Data
-			// 
-			this.APIRadio_Data.AutoSize = true;
-			this.APIRadio_Data.Enabled = false;
-			this.APIRadio_Data.Location = new System.Drawing.Point(7, 36);
-			this.APIRadio_Data.Name = "APIRadio_Data";
-			this.APIRadio_Data.Size = new System.Drawing.Size(68, 17);
-			this.APIRadio_Data.TabIndex = 1;
-			this.APIRadio_Data.Text = "Data API";
-			this.APIRadio_Data.UseVisualStyleBackColor = true;
-			this.APIRadio_Data.CheckedChanged += new System.EventHandler(this.APIRadio_Data_CheckedChanged);
 			// 
 			// MatrixAPIForm
 			// 

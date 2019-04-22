@@ -3,17 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.539
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEXFunctionTemplate_CPP", "MEXFunctionTemplate_CPP\MEXFunctionTemplate_CPP.csproj", "{5EC44FCA-E747-4BA4-B2C9-49AAFE365C5A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEXFunctionWizard", "MEXFunctionWizard\MEXFunctionWizard.csproj", "{1850A7FD-4688-4CE3-8692-AA0D78CA5BA1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatlabInputForm", "MatlabInputForm\MatlabInputForm.csproj", "{DDC739A2-457B-4588-8998-BC13945E7552}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEXFunctionTemplate_C", "MEXFunctionTemplate_C\MEXFunctionTemplate_C.csproj", "{280887D3-850C-4843-BBA2-AF60F55A343F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEXFunctionTemplate_F", "MEXFunctionTemplate_F\MEXFunctionTemplate_F.csproj", "{E1E45033-32D7-4EBE-8A6B-19A29234EAFD}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEXFunctionTemplate_DATA", "MEXFunctionTemplate_DATA\MEXFunctionTemplate_DATA.csproj", "{F45B10C7-2E97-481C-932A-D505E06165E7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEXFunctionTemplate", "MEXFunctionTemplate\MEXFunctionTemplate.csproj", "{7B266E5B-87A5-422D-8B0D-2C46E516A861}"
 EndProject
@@ -23,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5EC44FCA-E747-4BA4-B2C9-49AAFE365C5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5EC44FCA-E747-4BA4-B2C9-49AAFE365C5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5EC44FCA-E747-4BA4-B2C9-49AAFE365C5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5EC44FCA-E747-4BA4-B2C9-49AAFE365C5A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1850A7FD-4688-4CE3-8692-AA0D78CA5BA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1850A7FD-4688-4CE3-8692-AA0D78CA5BA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1850A7FD-4688-4CE3-8692-AA0D78CA5BA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -35,18 +23,6 @@ Global
 		{DDC739A2-457B-4588-8998-BC13945E7552}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDC739A2-457B-4588-8998-BC13945E7552}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDC739A2-457B-4588-8998-BC13945E7552}.Release|Any CPU.Build.0 = Release|Any CPU
-		{280887D3-850C-4843-BBA2-AF60F55A343F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{280887D3-850C-4843-BBA2-AF60F55A343F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{280887D3-850C-4843-BBA2-AF60F55A343F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{280887D3-850C-4843-BBA2-AF60F55A343F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E1E45033-32D7-4EBE-8A6B-19A29234EAFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E1E45033-32D7-4EBE-8A6B-19A29234EAFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E1E45033-32D7-4EBE-8A6B-19A29234EAFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E1E45033-32D7-4EBE-8A6B-19A29234EAFD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F45B10C7-2E97-481C-932A-D505E06165E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F45B10C7-2E97-481C-932A-D505E06165E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F45B10C7-2E97-481C-932A-D505E06165E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F45B10C7-2E97-481C-932A-D505E06165E7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7B266E5B-87A5-422D-8B0D-2C46E516A861}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7B266E5B-87A5-422D-8B0D-2C46E516A861}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B266E5B-87A5-422D-8B0D-2C46E516A861}.Release|Any CPU.ActiveCfg = Release|Any CPU
