@@ -140,13 +140,21 @@ namespace MatlabInputForm
 			string depends = "libmx.lib;libmex.lib;libmat.lib";
 			if(this.language == Language.CPP)
 			{
-				if(File.Exists(GetLibraryFullPath() + "libMatlabDataArray.lib"))
+				if(this.api == API.DATA)
 				{
-					depends += ";libMatlabDataArray.lib";
+					depends += ";libMatlabDataArray.lib;libMatlabEngine.lib";
 				}
-				if(File.Exists(GetLibraryFullPath() + "libMatlabEngine.lib"))
+				else
 				{
-					depends += ";libMatlabEngine.lib";
+					/* these are not essential in this case */
+					if(File.Exists(GetLibraryFullPath() + "libMatlabDataArray.lib"))
+					{
+						depends += ";libMatlabDataArray.lib";
+					}
+					if(File.Exists(GetLibraryFullPath() + "libMatlabEngine.lib"))
+					{
+						depends += ";libMatlabEngine.lib";
+					}
 				}
 			}
 			return depends;
@@ -521,7 +529,6 @@ namespace MatlabInputForm
 				{
 					chk_s = "Invalid 32-bit platform";
 				}
-				chk_s = "Invalid API";
 			}
 			return res;
 		}
@@ -554,12 +561,6 @@ namespace MatlabInputForm
 		public CheckResult CheckIncludePath()
 		{
 			return CheckIncludePath(out _);
-		}
-		
-
-		public CheckResult CheckPreprocessorDefinitions()
-		{
-			return CheckResult.SUCCESS;
 		}
 
 		public CheckResult CheckLibraryPath(out string chk_s)
@@ -649,23 +650,11 @@ namespace MatlabInputForm
 			return CheckDependencies(out _);
 		}
 
-	}
-
-	public class MatlabNotFoundException : Exception
-	{
-		public MatlabNotFoundException()
+		public CheckResult CheckPreprocessorDefinitions()
 		{
+			return CheckResult.SUCCESS;
 		}
 
-		public MatlabNotFoundException(string message)
-			: base(message)
-		{
-		}
-
-		public MatlabNotFoundException(string message, Exception inner)
-			: base(message, inner)
-		{
-		}
 	}
 
 }
