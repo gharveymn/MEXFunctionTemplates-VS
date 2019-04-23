@@ -8,7 +8,7 @@
         <License>LICENSE</License>
         <Icon>matlab_logo.ico</Icon>
         <PreviewImage>Matlab_Logo.png</PreviewImage>
-        <Tags>MEX, MATLAB, VSIX, Extensibility, VC, C++, C, Template</Tags>
+        <Tags>MEX, MATLAB, Extensibility, VC, C++, C, Template</Tags>
     </Metadata>
     <Installation>
         <InstallationTarget Version="[12.0,17.0)" Id="Microsoft.VisualStudio.Community" />
