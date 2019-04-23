@@ -84,28 +84,10 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="APIPanel.cs" />
-    <Compile Include="ImportReviewForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ImportReviewForm.Designer.cs">
-      <DependentUpon>ImportReviewForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="ImportReviewPanel.cs" />
     <Compile Include="MatlabConfiguration.cs" />
-    <Compile Include="MatrixAPIForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MatrixAPIForm.Designer.cs">
-      <DependentUpon>MatrixAPIForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ImportReviewForm.resx">
-      <DependentUpon>ImportReviewForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MatrixAPIForm.resx">
-      <DependentUpon>MatrixAPIForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
