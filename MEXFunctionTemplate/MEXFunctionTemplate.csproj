@@ -4,6 +4,7 @@
     <MinimumVisualStudioVersion>15.0</MinimumVisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <TargetFrameworkProfile />
+    <UseCodebase>true</UseCodebase>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug %28Visual Studio 2017%29|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -40,7 +41,7 @@
     <DeployExtension>false</DeployExtension>
     <DeployVSTemplates>false</DeployVSTemplates>
     <CopyVsixManifestToOutput>false</CopyVsixManifestToOutput>
-    <CopyBuildOutputToOutputDirectory>false</CopyBuildOutputToOutputDirectory>
+    <CopyBuildOutputToOutputDirectory>true</CopyBuildOutputToOutputDirectory>
     <CopyOutputSymbolsToOutputDirectory>false</CopyOutputSymbolsToOutputDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -78,13 +79,14 @@
     </VSTemplate>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="matlab.xml" />
+    <Resource Include="matlab.xml" />
     <Content Include="matlab_logo.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="genekey.snk" />
-    <None Include="matlab.targets" />
-    <None Include="ProjectTemplate.vcxproj" />
+    <Resource Include="matlab.targets" />
+    <Resource Include="mexfunction" />
+    <Resource Include="ProjectTemplate.vcxproj" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />

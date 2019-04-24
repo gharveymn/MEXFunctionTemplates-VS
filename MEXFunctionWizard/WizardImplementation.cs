@@ -48,7 +48,6 @@ namespace MEXFunctionWizard
 				// first element of customParams is the vstemplate file
 				string template_source_path = customParams[0].ToString();
 				string template_source_folder = Path.GetDirectoryName(template_source_path);
-				string template_source_file = Path.GetFileNameWithoutExtension(template_source_path);
 
 				using(APIForm input_form = new APIForm())
 				{
@@ -65,8 +64,8 @@ namespace MEXFunctionWizard
 					// Add custom parameters.
 					replacementsDictionary.Add("$TARGET_MACHINE$", ml_config.imports.TargetMachine);
 					replacementsDictionary.Add("$COMPILE_AS$", ml_config.imports.CompileAs);
-					replacementsDictionary.Add("$TARGETS_FILE$", Path.Combine(template_source_folder, "matlab.targets"));
-					replacementsDictionary.Add("$RULE_FILE$", Path.Combine(template_source_folder, "matlab.xml"));
+					replacementsDictionary.Add("$TARGETS_FILE$", @"$(MSBuildProjectDirectory)\matlab.targets");
+					replacementsDictionary.Add("$RULE_FILE$", @"$(MSBuildProjectDirectory)\matlab.xml");
 					replacementsDictionary.Add("$PROJECTEXT$", ml_config.imports.ProjectExtension);
 					replacementsDictionary.Add("$FILEEXT$", ml_config.imports.FileExtension);
 					replacementsDictionary.Add("$API_SHORT_NAME$", ml_config.imports.APIShortName);
@@ -78,7 +77,19 @@ namespace MEXFunctionWizard
 					replacementsDictionary.Add("$MATLAB_PREPROCESSOR_DEFINITIONS$",
 						ml_config.imports.PreprocessorDefinitions);
 					replacementsDictionary.Add("$MEXEXT$", ml_config.imports.MEXExtension);
-				}
+
+                    /* vstemplate system doesn't allow copying of these without hacking like this */
+                    string src_path = Path.Combine(template_source_folder, "matlab.targets");
+                    string dst_path = Path.Combine(dest_dir, "matlab.targets");
+
+                    File.Copy(src_path, dst_path, true);
+
+                    src_path = Path.Combine(template_source_folder, "matlab.xml");
+                    dst_path = Path.Combine(dest_dir, "matlab.xml");
+
+                    File.Copy(src_path, dst_path, true);
+
+                }
 			}
 			catch (System.Exception ex)
 			{
