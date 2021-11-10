@@ -39,9 +39,9 @@
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|$PLATFORM$'">
 		<LinkIncremental>false</LinkIncremental>
 		<TargetExt>$MEXEXT$</TargetExt>
-		<OutDir>$(SolutionDir)Bin\$(Platform)\$(Configuration)\</OutDir>
+		<OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
 		<EmbedManifest>false</EmbedManifest>
-		<IntDir>$(SolutionDir)Build\$(Platform)\$(Configuration)\</IntDir>
+		<IntDir>$(ProjectDir)build\$(Platform)\$(Configuration)\</IntDir>
 		<MatlabRoot>$MATLABROOT$</MatlabRoot>
 		<Matlab_IncludePath>$MATLAB_INCLUDE_PATH$</Matlab_IncludePath>
 		<Matlab_LibraryPath>$MATLAB_LIBRARY_PATH$</Matlab_LibraryPath>
@@ -51,9 +51,9 @@
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|$PLATFORM$'">
 		<LinkIncremental>false</LinkIncremental>
 		<TargetExt>$MEXEXT$</TargetExt>
-		<OutDir>$(SolutionDir)Bin\$(Platform)\$(Configuration)\</OutDir>
+		<OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
 		<EmbedManifest>false</EmbedManifest>
-		<IntDir>$(SolutionDir)Build\$(Platform)\$(Configuration)\</IntDir>
+		<IntDir>$(ProjectDir)build\$(Platform)\$(Configuration)\</IntDir>
 		<MatlabRoot>$MATLABROOT$</MatlabRoot>
 		<Matlab_IncludePath>$MATLAB_INCLUDE_PATH$</Matlab_IncludePath>
 		<Matlab_LibraryPath>$MATLAB_LIBRARY_PATH$</Matlab_LibraryPath>
