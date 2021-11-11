@@ -1,5 +1,5 @@
 # MEX Function Templates
-This is a Visual Studio package which provides project templates for creating MEX functions in Visual Studio. It supports VS2013-VS2019 and can create builds for both 64-bit and 32-bit versions of MATLAB.
+This is a Visual Studio package which provides project templates for creating MEX functions in Visual Studio. It supports VS2013-VS2022 and can create builds for both 64-bit and 32-bit versions of MATLAB.
 
 Available on [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=gharveymn.MEXFunctionTemplates).
 
